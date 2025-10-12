@@ -1,14 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Default light mode */
 body {
-  background-color: white;
+  background-color: #E8F0EF;
   color: black;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.5s, color 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body #loginForm {
+  width: 448px;
+  height: 543px;
+  background: #FFF;
+  border-radius: 12px;
+  padding: 40px 32px;
 }
 
 /* Dark mode */
 body.dark {
-  background-color: #121212;
+  background-color: #001414;
   color: white;
+}
+body.dark #loginForm {
+  background: #001F1F;
 }
 
 /* Button position and style (optional) */

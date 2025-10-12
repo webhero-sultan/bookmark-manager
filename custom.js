@@ -21,18 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
       themeButton.innerText = "Dark Mode";
     }
 
-    themeButton.addEventListener("click", function () {
-      document.body.classList.toggle("dark");
+  themeButton.addEventListener("click", function () {
+    const logo = document.getElementById("themeLogo"); // get your logo image
+    document.body.classList.toggle("dark");
 
-      if (document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-        themeButton.innerText = "Light Mode";
-      } else {
-        localStorage.setItem("theme", "light");
-        themeButton.innerText = "Dark Mode";
-      }
-    });
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    themeButton.innerText = "Light Mode";
+
+    // change logo to dark theme version
+    if (logo) logo.src = "assets/images/logo-dark-theme.svg";
+  } else {
+    localStorage.setItem("theme", "light");
+    themeButton.innerText = "Dark Mode";
+
+    // change logo to light theme version
+    if (logo) logo.src = "assets/images/logo-light-theme.svg";
   }
+  });
+  }
+  
   // Check if we are on bookmarks.html
   if (window.location.pathname.endsWith("bookmarks.html")) {
 
