@@ -1,58 +1,48 @@
-
-// ------------------------
-// Bookmarks page logic
-// ------------------------
 document.addEventListener("DOMContentLoaded", () => {
+
   // ===== THEME TOGGLE SYSTEM =====
-  let savedTheme = localStorage.getItem("theme");
+  const savedTheme = localStorage.getItem("theme");
+  const themeButton = document.getElementById("themeToggle");
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
+  // Select all logos
+  const logos = document.querySelectorAll("#themeLogo, #signupLogo, #forgotLogo");
 
-  let themeButton = document.getElementById("themeToggle");
+  // Apply saved theme on load
+  const isDark = savedTheme === "dark";
+  document.body.classList.toggle("dark", isDark);
+  if (themeButton) themeButton.innerText = isDark ? "Light Mode" : "Dark Mode";
 
-  if (themeButton) {
-    if (document.body.classList.contains("dark")) {
-      themeButton.innerText = "Light Mode";
-    } else {
-      themeButton.innerText = "Dark Mode";
-    }
-
-  themeButton.addEventListener("click", function () {
-    const logo = document.getElementById("themeLogo"); // get your logo image
-    document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-    themeButton.innerText = "Light Mode";
-
-    // change logo to dark theme version
-    if (logo) logo.src = "assets/images/logo-dark-theme.svg";
-  } else {
-    localStorage.setItem("theme", "light");
-    themeButton.innerText = "Dark Mode";
-
-    // change logo to light theme version
-    if (logo) logo.src = "assets/images/logo-light-theme.svg";
-  }
+  // Update all logos on load
+  logos.forEach(logo => {
+    if (logo) logo.src = isDark
+      ? "assets/images/logo-dark-theme.svg"
+      : "assets/images/logo-light-theme.svg";
   });
-  }
-  
-  // Check if we are on bookmarks.html
-  if (window.location.pathname.endsWith("bookmarks.html")) {
 
-    // --- Authentication Check ---
+  // Theme toggle button
+  if (themeButton) {
+    themeButton.addEventListener("click", () => {
+      const darkMode = document.body.classList.toggle("dark");
+      localStorage.setItem("theme", darkMode ? "dark" : "light");
+      themeButton.innerText = darkMode ? "Light Mode" : "Dark Mode";
+
+      // Update all logos on toggle
+      logos.forEach(logo => {
+        if (logo) logo.src = darkMode
+          ? "assets/images/logo-dark-theme.svg"
+          : "assets/images/logo-light-theme.svg";
+      });
+    });
+  }
+
+  // ===== BOOKMARKS PAGE LOGIC =====
+  if (window.location.pathname.endsWith("bookmarks.html")) {
     const currentUser = localStorage.getItem("currentUser");
     if (!currentUser) {
-      // Redirect to login page if not logged in
       window.location.replace("index.html");
       return;
     }
 
-    // --- Logout Logic ---
     const logoutButton = document.getElementById("logoutButton");
     if (logoutButton) {
       logoutButton.addEventListener("click", () => {
@@ -61,104 +51,106 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // (Optional) --- Personalized Greeting ---
     const heading = document.querySelector("h1");
     if (heading && currentUser) {
       heading.textContent = `Welcome, ${currentUser}!`;
     }
   }
+
+  // ===== SIGNUP LOGIC =====
+  const signupButton = document.getElementById("signupButton");
+  if (signupButton) {
+    signupButton.addEventListener("click", () => {
+      const username = document.getElementById("signupUsername").value.trim();
+      const password = document.getElementById("signupPassword").value;
+      const signupMessage = document.getElementById("signupMsg");
+
+      if (!username || !password) {
+        signupMessage.textContent = "Please enter both username and password.";
+        signupMessage.style.color = "red";
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users") || "{}");
+      if (users[username]) {
+        signupMessage.textContent = "Username exists. Try login.";
+        signupMessage.style.color = "red";
+        return;
+      }
+
+      users[username] = { password: password, bookmarks: [] };
+      localStorage.setItem("users", JSON.stringify(users));
+
+      signupMessage.textContent = "Signup successful! You can now login.";
+      signupMessage.style.color = "green";
+      document.getElementById("signupUsername").value = "";
+      document.getElementById("signupPassword").value = "";
+    });
+  }
+
+  // ===== LOGIN LOGIC =====
+  const loginButton = document.getElementById("loginButton");
+  if (loginButton) {
+    loginButton.addEventListener("click", () => {
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value;
+      const loginMessage = document.getElementById("loginMsg");
+
+      if (!username || !password) {
+        loginMessage.textContent = "Please enter both username and password.";
+        loginMessage.style.color = "red";
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users") || "{}");
+      if (!users[username]) {
+        loginMessage.textContent = "User not found. Please signup first.";
+        loginMessage.style.color = "red";
+        return;
+      }
+
+      if (users[username].password !== password) {
+        loginMessage.textContent = "Incorrect password. Try again.";
+        loginMessage.style.color = "red";
+        return;
+      }
+
+      localStorage.setItem("currentUser", username);
+      window.location.href = "bookmarks.html";
+    });
+  }
+
+  // ===== FORM TOGGLE LOGIC =====
+  const toggleLogin = document.getElementById("toggleLogin");
+  if (toggleLogin) {
+    toggleLogin.addEventListener("click", () => {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
+    });
+  }
+
+  const toggleSignup = document.getElementById("toggleSignup");
+  if (toggleSignup) {
+    toggleSignup.addEventListener("click", () => {
+      document.getElementById("signupForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    });
+  }
+
+  const forgotLink = document.getElementById("forgotLink");
+  if (forgotLink) {
+    forgotLink.addEventListener("click", () => {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("forgotForm").style.display = "block";
+    });
+  }
+
+  const toggleForgotLogin = document.getElementById("toggleForgotLogin");
+  if (toggleForgotLogin) {
+    toggleForgotLogin.addEventListener("click", () => {
+      document.getElementById("forgotForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    });
+  }
+
 });
-
-
-
-
-// ------------------------
-// Signup logic
-// ------------------------
-const signupButton = document.getElementById("signupButton");
-signupButton.addEventListener("click", function() {
-  const username = document.getElementById("signupUsername").value.trim();
-  const password = document.getElementById("signupPassword").value;
-  const signupMessage = document.getElementById("signupMsg");
-
-  if (username === "" || password === "") {
-    signupMessage.textContent = "Please enter both username and password.";
-    signupMessage.style.color = "red";
-    return;
-  }
-
-  let users = JSON.parse(localStorage.getItem("users") || "{}");
-
-  if (users[username]) {
-    signupMessage.textContent = "Username exists. Try login.";
-    signupMessage.style.color = "red";
-    return;
-  }
-
-  users[username] = { password: password, bookmarks: [] };
-  localStorage.setItem("users", JSON.stringify(users));
-
-  signupMessage.textContent = "Signup successful! You can now login.";
-  signupMessage.style.color = "green";
-
-  document.getElementById("signupUsername").value = "";
-  document.getElementById("signupPassword").value = "";
-});
-
-// ------------------------
-// Login logic
-// ------------------------
-const loginButton = document.getElementById("loginButton");
-loginButton.addEventListener("click", function() {
-  const username = document.getElementById("loginUsername").value.trim();
-  const password = document.getElementById("loginPassword").value;
-  const loginMessage = document.getElementById("loginMsg");
-
-  if (username === "" || password === "") {
-    loginMessage.textContent = "Please enter both username and password.";
-    loginMessage.style.color = "red";
-    return;
-  }
-
-  let users = JSON.parse(localStorage.getItem("users") || "{}");
-
-  if (!users[username]) {
-    loginMessage.textContent = "User not found. Please signup first.";
-    loginMessage.style.color = "red";
-    return;
-  }
-
-  if (users[username].password !== password) {
-    loginMessage.textContent = "Incorrect password. Try again.";
-    loginMessage.style.color = "red";
-    return;
-  }
-
-  localStorage.setItem("currentUser", username);
-  window.location.href = "bookmarks.html";
-});
-
-// ------------------------
-// Toggle signup/login
-// ------------------------
-const toggleButton = document.getElementById("toggleButton");
-toggleButton.addEventListener("click", function() {
-  const signupForm = document.getElementById("signupForm");
-  const loginForm = document.getElementById("loginForm");
-
-  if (loginForm.style.display !== "none") {
-    // Switch to signup
-    loginForm.style.display = "none";
-    signupForm.style.display = "block";
-    toggleButton.textContent = "Already have an account? Login";
-  } else {
-    // Switch to login
-    signupForm.style.display = "none";
-    loginForm.style.display = "block";
-    toggleButton.textContent = "Don't have an account? Sign Up";
-  }
-});
-
-
-
-

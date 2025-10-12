@@ -5,32 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookmark_Manager</title>
   <link rel="stylesheet" href="style.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
 <body>
   <!-- ===== signup and login section starts ===== -->
   <div id="accountForm">
     <div class="container">
-      <!-- ===== signup section starts ===== -->
-      <!-- <div id="signupForm"  style="display: none;">
-        <input type="text" id="signupUsername">
-        <input type="password" name="" id="signupPassword">
-        <button id="signupButton">sign up</button>
-        <p id="signupMsg"></p>
-      </div> -->
-      <!-- ===== signup section ends ===== -->
-      <!-- ===== login section starts ===== -->
-      <div id="loginForm">
-        <img src="assets/images/logo-light-theme.svg" id="themeLogo" alt="">
-        <!-- <input type="text" id="loginUsername">
-        <input type="password" name="" id="loginPassword">
-        <button id="loginButton">login</button>
-        <p id="loginMsg"></p> -->
-        <!-- <p>
-          <button id="toggleButton">Don't have an account? signup</button>
-        </p> -->
-      </div>
-      <!-- ===== login section ends ===== -->
+<!-- ===== signup section starts ===== -->
+<div id="signupForm" style="display: none;">
+  <img src="assets/images/logo-light-theme.svg" id="signupLogo" alt="">
+  <h1>Sign up for your account</h1>
+  <p>Welcome! Please enter your details.</p>
+  <div class="name">
+    <label for="">Full Name</label>
+    <input type="text" id="signupUsername">
+  </div>
+  <div class="password">
+    <label for="password">Password</label>
+    <input type="password" id="signupPassword">
+  </div>
+  <button id="signupButton">Sign Up</button>
+  <p>
+    <button id="toggleSignup">Already have an account? Login</button>
+  </p>
+</div>
+<!-- ===== signup section ends ===== -->
 
+<!-- ===== login section starts ===== -->
+<div id="loginForm">
+  <img src="assets/images/logo-light-theme.svg" id="themeLogo" alt="">
+  <h1>Log in to your account</h1>
+  <p>Welcome back! Please enter your details.</p>
+
+  <div class="email">
+    <label for="email">Email</label>
+    <input type="email" id="loginUsername">
+  </div>
+
+  <div class="password">
+    <label for="password">Password</label>
+    <input type="password" id="loginPassword">
+  </div>
+
+  <!-- Forgot password link -->
+  <p>
+    <button type="button" id="forgotLink" class="forgot-btn">Forgot Password?</button>
+  </p>
+
+  <button id="loginButton">Login</button>
+
+  <p>
+    <button id="toggleLogin">Don't have an account? Sign Up</button>
+  </p>
+</div>
+
+<!-- ===== login section ends ===== -->
+
+      <!-- ===== forget password section starts ===== -->
+      <div id="forgotForm" style="display: none;">
+        <img src="assets/images/logo-light-theme.svg" id="forgotLogo" alt="">
+        <h1>Reset your password</h1>
+        <p>Enter your email and we’ll send a reset link.</p>
+        <div class="email">
+          <label for="forgotEmail">Email</label>
+          <input type="email" id="forgotEmail">
+        </div>
+        <button id="forgotButton">Send Reset Link</button>
+        <p>
+          <button id="toggleForgotLogin">Back to Login</button>
+        </p>
+      </div>
+      <!-- ===== forget password section ends ===== -->
     </div>
   </div>
   <!-- ===== signup and login section ends ===== -->

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,20 +7,29 @@
 
 /* Default light mode */
 body {
+  font-family: "Manrope", sans-serif;
   background-color: #E8F0EF;
   color: black;
   transition: background-color 0.5s, color 0.5s;
+}
+body #accountForm {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-body #loginForm {
+body #accountForm #loginForm {
   width: 448px;
   height: 543px;
   background: #FFF;
   border-radius: 12px;
   padding: 40px 32px;
+}
+body #accountForm #loginForm label {
+  display: block;
+}
+body #accountForm #loginForm input {
+  width: 100%;
 }
 
 /* Dark mode */
@@ -27,7 +37,7 @@ body.dark {
   background-color: #001414;
   color: white;
 }
-body.dark #loginForm {
+body.dark #accountForm #loginForm {
   background: #001F1F;
 }
 

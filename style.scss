@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 @import "variables";
 @import "mixins";
 
@@ -8,19 +10,28 @@
 }
 /* Default light mode */
 body {
+  font-family: "Manrope", sans-serif;
   background-color: $primary-bg;
   color: black;
   transition: background-color .5s, color .5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  #loginForm{
-    width: 448px;
-    height: 543px;
-    background: #FFF;
-    border-radius: 12px;
-    padding: 40px 32px;
+  #accountForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    #loginForm{
+      width: 448px;
+      height: 543px;
+      background: #FFF;
+      border-radius: 12px;
+      padding: 40px 32px;
+      label{
+        display: block;
+      }
+      input{
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -48,8 +59,10 @@ body {
 body.dark {
   background-color: $dark-bg;
   color: white;
-  #loginForm{
-    background: #001F1F;
+  #accountForm{
+    #loginForm{
+      background: #001F1F;
+    }
   }
 }
 
