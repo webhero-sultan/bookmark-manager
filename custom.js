@@ -3,6 +3,36 @@
 // Bookmarks page logic
 // ------------------------
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== THEME TOGGLE SYSTEM =====
+  let savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+
+  let themeButton = document.getElementById("themeToggle");
+
+  if (themeButton) {
+    if (document.body.classList.contains("dark")) {
+      themeButton.innerText = "Light Mode";
+    } else {
+      themeButton.innerText = "Dark Mode";
+    }
+
+    themeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        themeButton.innerText = "Light Mode";
+      } else {
+        localStorage.setItem("theme", "light");
+        themeButton.innerText = "Dark Mode";
+      }
+    });
+  }
   // Check if we are on bookmarks.html
   if (window.location.pathname.endsWith("bookmarks.html")) {
 
@@ -120,5 +150,7 @@ toggleButton.addEventListener("click", function() {
     toggleButton.textContent = "Don't have an account? Sign Up";
   }
 });
+
+
 
 
