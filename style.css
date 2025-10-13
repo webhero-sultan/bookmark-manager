@@ -10,7 +10,7 @@ body {
   font-family: "Manrope", sans-serif;
   background-color: #E8F0EF;
   color: black;
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.3s, color 0.3s;
 }
 body #accountForm {
   display: flex;
@@ -27,9 +27,59 @@ body #accountForm #loginForm {
 }
 body #accountForm #loginForm label {
   display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 body #accountForm #loginForm input {
   width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #899492;
+  background: #fff;
+  margin-bottom: 20px;
+  outline: none;
+}
+body #accountForm #loginForm input:focus {
+  border-color: #00706E;
+}
+body #accountForm #loginForm h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 5px;
+}
+body #accountForm #loginForm p {
+  font-size: 14px;
+  font-weight: normal;
+  color: #4C5C59;
+  margin-bottom: 32px;
+}
+body #accountForm #loginForm .loginBtn {
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #00706E;
+  background: #014745;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+body #accountForm #loginForm .resetMsg, body #accountForm #loginForm .signupMsg {
+  text-align: center;
+  margin-bottom: 0;
+  color: #4C5C59;
+  margin-top: 12px;
+  font-size: 14px;
+}
+body #accountForm #loginForm .resetMsg a, body #accountForm #loginForm .signupMsg a {
+  font-weight: 700;
+  color: #051513;
+  text-decoration: none;
 }
 
 /* Dark mode */
@@ -39,6 +89,20 @@ body.dark {
 }
 body.dark #accountForm #loginForm {
   background: #001F1F;
+}
+body.dark #accountForm #loginForm input {
+  background: #002E2D;
+  border-color: #00706E;
+  color: #FFF;
+}
+body.dark #accountForm #loginForm p {
+  color: #B1B9B9;
+}
+body.dark #accountForm #loginForm a {
+  color: #fff;
+}
+body.dark #accountForm #loginForm .loginBtn {
+  border-color: #00706E;
 }
 
 /* Button position and style (optional) */

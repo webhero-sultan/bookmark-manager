@@ -11,56 +11,47 @@
   <!-- ===== signup and login section starts ===== -->
   <div id="accountForm">
     <div class="container">
-<!-- ===== signup section starts ===== -->
-<div id="signupForm" style="display: none;">
-  <img src="assets/images/logo-light-theme.svg" id="signupLogo" alt="">
-  <h1>Sign up for your account</h1>
-  <p>Welcome! Please enter your details.</p>
-  <div class="name">
-    <label for="">Full Name</label>
-    <input type="text" id="signupUsername">
-  </div>
-  <div class="password">
-    <label for="password">Password</label>
-    <input type="password" id="signupPassword">
-  </div>
-  <button id="signupButton">Sign Up</button>
-  <p>
-    <button id="toggleSignup">Already have an account? Login</button>
-  </p>
-</div>
-<!-- ===== signup section ends ===== -->
-
-<!-- ===== login section starts ===== -->
-<div id="loginForm">
-  <img src="assets/images/logo-light-theme.svg" id="themeLogo" alt="">
-  <h1>Log in to your account</h1>
-  <p>Welcome back! Please enter your details.</p>
-
-  <div class="email">
-    <label for="email">Email</label>
-    <input type="email" id="loginUsername">
-  </div>
-
-  <div class="password">
-    <label for="password">Password</label>
-    <input type="password" id="loginPassword">
-  </div>
-
-  <!-- Forgot password link -->
-  <p>
-    <button type="button" id="forgotLink" class="forgot-btn">Forgot Password?</button>
-  </p>
-
-  <button id="loginButton">Login</button>
-
-  <p>
-    <button id="toggleLogin">Don't have an account? Sign Up</button>
-  </p>
-</div>
-
-<!-- ===== login section ends ===== -->
-
+      <!-- ===== signup section starts ===== -->
+      <div id="signupForm" style="display: none;">
+        <img src="assets/images/logo-light-theme.svg" id="signupLogo" alt="">
+        <h1>Sign up for your account</h1>
+        <p>Welcome! Please enter your details.</p>
+        <div class="name">
+          <label for="">Full Name</label>
+          <input type="text" id="signupUsername">
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input type="password" id="signupPassword">
+        </div>
+        <button id="signupButton">Sign Up</button>
+        <p>
+          <button id="toggleSignup">Already have an account? Login</button>
+        </p>
+      </div>
+      <!-- ===== signup section ends ===== -->
+      <!-- ===== login section starts ===== -->
+      <div id="loginForm">
+        <img src="assets/images/logo-light-theme.svg" id="themeLogo" alt="">
+        <h1>Log in to your account</h1>
+        <p>Welcome back! Please enter your details.</p>
+        <div class="email">
+          <label for="email">Email</label>
+          <input type="email" id="loginUsername">
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input type="password" id="loginPassword">
+        </div>
+        <button id="loginButton" class="loginBtn">Log in</button>
+        <p class="resetMsg">
+          Forgot Password? <a href="#" id="forgotLink" class="forgot-btn">Reset it</a>
+        </p>
+        <p class="signupMsg">
+          Don't have an account? <a href="#" id="toggleLogin">Sign Up</a>
+        </p>
+      </div>
+      <!-- ===== login section ends ===== -->
       <!-- ===== forget password section starts ===== -->
       <div id="forgotForm" style="display: none;">
         <img src="assets/images/logo-light-theme.svg" id="forgotLogo" alt="">
@@ -80,6 +71,8 @@
   </div>
   <!-- ===== signup and login section ends ===== -->
   <button id="themeToggle">Dark Mode</button>
+
+
 
   <script src="custom.js"></script>
 </body>
