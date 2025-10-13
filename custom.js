@@ -54,72 +54,108 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const heading = document.querySelector("h1");
     if (heading && currentUser) {
-      heading.textContent = `Welcome, ${currentUser}!`;
+    const users = JSON.parse(localStorage.getItem("users") || "{}");
+    const userData = users[currentUser]; // currentUser stores email
+    if (userData && userData.fullName) {
+    heading.textContent = `Welcome, ${userData.fullName}`;
+    } else {
+    heading.textContent = `Welcome, ${currentUser}`; // fallback to email
+  }
+}
+
+  }
+
+// ===== SIGNUP LOGIC =====
+const signupButton = document.getElementById("signupButton");
+if (signupButton) {
+  signupButton.addEventListener("click", () => {
+    const fullName = document.getElementById("signupUsername").value.trim();
+    const email = document.getElementById("signupUserEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const signupMessage = document.getElementById("signupMsg");
+
+    // Simple email validation (must be a valid format and end with @gmail.com)
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+    if (!fullName || !email || !password) {
+      signupMessage.textContent = "All fields are required.";
+      signupMessage.style.color = "red";
+      return;
     }
-  }
 
-  // ===== SIGNUP LOGIC =====
-  const signupButton = document.getElementById("signupButton");
-  if (signupButton) {
-    signupButton.addEventListener("click", () => {
-      const username = document.getElementById("signupUsername").value.trim();
-      const password = document.getElementById("signupPassword").value;
-      const signupMessage = document.getElementById("signupMsg");
+    if (!emailRegex.test(email)) {
+      signupMessage.textContent = "Please enter a valid Gmail address (example@gmail.com).";
+      signupMessage.style.color = "red";
+      return;
+    }
 
-      if (!username || !password) {
-        signupMessage.textContent = "Please enter both username and password.";
-        signupMessage.style.color = "red";
-        return;
-      }
+    let users = JSON.parse(localStorage.getItem("users") || "{}");
+    if (users[email]) {
+      signupMessage.textContent = "This email is already registered. Try logging in.";
+      signupMessage.style.color = "red";
+      return;
+    }
 
-      let users = JSON.parse(localStorage.getItem("users") || "{}");
-      if (users[username]) {
-        signupMessage.textContent = "Username exists. Try login.";
-        signupMessage.style.color = "red";
-        return;
-      }
+    users[email] = { fullName, password, bookmarks: [] };
+    localStorage.setItem("users", JSON.stringify(users));
 
-      users[username] = { password: password, bookmarks: [] };
-      localStorage.setItem("users", JSON.stringify(users));
+    signupMessage.textContent = "Signup successful! You can now log in.";
+    signupMessage.style.color = "green";
 
-      signupMessage.textContent = "Signup successful! You can now login.";
-      signupMessage.style.color = "green";
-      document.getElementById("signupUsername").value = "";
-      document.getElementById("signupPassword").value = "";
-    });
-  }
+    // Clear form
+    document.getElementById("signupUsername").value = "";
+    document.getElementById("signupUserEmail").value = "";
+    document.getElementById("signupPassword").value = "";
+  });
+}
 
-  // ===== LOGIN LOGIC =====
-  const loginButton = document.getElementById("loginButton");
-  if (loginButton) {
-    loginButton.addEventListener("click", () => {
-      const username = document.getElementById("loginUsername").value.trim();
-      const password = document.getElementById("loginPassword").value;
-      const loginMessage = document.getElementById("loginMsg");
 
-      if (!username || !password) {
-        loginMessage.textContent = "Please enter both username and password.";
-        loginMessage.style.color = "red";
-        return;
-      }
+// ===== LOGIN LOGIC (by email) =====
+const loginButton = document.getElementById("loginButton");
+if (loginButton) {
+  loginButton.addEventListener("click", () => {
+    const email = document.getElementById("loginUsername").value.trim();
+    const password = document.getElementById("loginPassword").value;
+    const loginMessage = document.getElementById("loginMsg");
 
-      let users = JSON.parse(localStorage.getItem("users") || "{}");
-      if (!users[username]) {
-        loginMessage.textContent = "User not found. Please signup first.";
-        loginMessage.style.color = "red";
-        return;
-      }
+    // create message element if missing
+    let msg = loginMessage;
+    if (!msg) {
+      msg = document.createElement("p");
+      msg.id = "loginMsg";
+      loginButton.insertAdjacentElement("afterend", msg);
+    }
 
-      if (users[username].password !== password) {
-        loginMessage.textContent = "Incorrect password. Try again.";
-        loginMessage.style.color = "red";
-        return;
-      }
+    msg.textContent = "";
 
-      localStorage.setItem("currentUser", username);
-      window.location.href = "bookmarks.html";
-    });
-  }
+    if (!email || !password) {
+      msg.textContent = "Please enter both email and password.";
+      msg.style.color = "red";
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users") || "{}");
+    const user = users[email];
+
+    if (!user) {
+      msg.textContent = "User not found. Please signup first.";
+      msg.style.color = "red";
+      return;
+    }
+
+    if (user.password !== password) {
+      msg.textContent = "Incorrect password. Try again.";
+      msg.style.color = "red";
+      return;
+    }
+
+    // store the logged in user
+    localStorage.setItem("currentUser", email);
+    window.location.href = "bookmarks.html"; // redirect
+  });
+}
+
+
 
   // ===== FORM TOGGLE LOGIC =====
   const toggleLogin = document.getElementById("toggleLogin");

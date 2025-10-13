@@ -30,7 +30,6 @@ body #accountForm {
 }
 body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm {
   width: 448px;
-  height: 543px;
   background: #FFF;
   border-radius: 12px;
   padding: 40px 32px;
@@ -53,6 +52,7 @@ body #accountForm #loginForm input, body #accountForm #signupForm input, body #a
 }
 body #accountForm #loginForm input:focus, body #accountForm #signupForm input:focus, body #accountForm #forgotForm input:focus {
   border-color: #00706E;
+  background: #fff;
 }
 body #accountForm #loginForm h1, body #accountForm #signupForm h1, body #accountForm #forgotForm h1 {
   font-size: 24px;
@@ -91,12 +91,6 @@ body #accountForm #loginForm .resetLink a, body #accountForm #loginForm .signupL
   color: #051513;
   text-decoration: none;
 }
-body #accountForm #signupForm {
-  height: 618px;
-}
-body #accountForm #forgotForm {
-  height: 443px;
-}
 
 body.dark {
   background-color: #001414;
@@ -126,8 +120,5 @@ body.dark #accountForm #loginForm .loginBtn, body.dark #accountForm #signupForm 
   }
   body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm {
     width: 343px;
-  }
-  body #accountForm #signupForm {
-    height: 635px;
   }
 }/*# sourceMappingURL=style.css.map */

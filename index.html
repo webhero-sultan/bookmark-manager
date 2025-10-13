@@ -17,17 +17,18 @@
         <h1>Create your account</h1>
         <p>Join us and start saving your favorite links — organized, searchable, and always within reach.</p>
         <div class="name">
-          <label for="">Full Name</label>
-          <input type="text" id="signupUsername" required>
+          <label for="">Full Name*</label>
+          <input type="text" id="signupUsername" autocomplete="off" required>
         </div>
         <div class="email">
-          <label for="">Email</label>
+          <label for="">Email*</label>
           <input type="email" id="signupUserEmail" required>
         </div>
         <div class="password">
-          <label for="password">Password</label>
-          <input type="password" id="signupPassword" required>
+          <label for="password">Password*</label>
+          <input type="password" id="signupPassword" autocomplete="off" required>
         </div>
+        <p id="signupMsg" class="msg"></p>
         <button id="signupButton" class="signupBtn">Sign Up</button>
         <p class="loginLink">
           Already have an account? <a href="#" id="toggleSignup">Login</a>
@@ -47,6 +48,7 @@
           <label for="password">Password</label>
           <input type="password" id="loginPassword">
         </div>
+        <p id="loginMsg" class="msg"></p>
         <button id="loginButton" class="loginBtn">Log in</button>
         <p class="resetLink">
           Forgot Password? <a href="#" id="forgotLink" class="forgot-btn">Reset it</a>

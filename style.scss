@@ -39,7 +39,7 @@ body {
     // ===== login part starts =====
     #loginForm, #signupForm, #forgotForm{
       width: 448px;
-      height: 543px;
+      // height: 543px;
       background: #FFF;
       border-radius: 12px;
       padding: 40px 32px;
@@ -60,6 +60,7 @@ body {
         outline: none;
         &:focus{
           border-color: #00706E;
+          background: #fff;
         }
       }
       h1{
@@ -102,12 +103,6 @@ body {
       }
     }
     // ===== login part ends =====
-    #signupForm{
-      height: 618px;
-    }
-    #forgotForm{
-      height: 443px;
-    }
   }
 }
 
@@ -148,9 +143,6 @@ body.dark {
     #accountForm{
       #loginForm, #signupForm, #forgotForm{
         width: 343px;
-      }
-      #signupForm{
-        height: 635px;
       }
     }
   }
