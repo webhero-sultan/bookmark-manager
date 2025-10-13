@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== THEME TOGGLE SYSTEM =====
+  // ===== theme toggle part starts =====
   const savedTheme = localStorage.getItem("theme");
   const themeButton = document.getElementById("themeToggle");
 
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  // ===== theme toggle part ends =====
 
   // ===== BOOKMARKS PAGE LOGIC =====
   if (window.location.pathname.endsWith("bookmarks.html")) {

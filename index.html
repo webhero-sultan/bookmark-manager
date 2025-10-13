@@ -14,19 +14,23 @@
       <!-- ===== signup section starts ===== -->
       <div id="signupForm" style="display: none;">
         <img src="assets/images/logo-light-theme.svg" id="signupLogo" alt="">
-        <h1>Sign up for your account</h1>
-        <p>Welcome! Please enter your details.</p>
+        <h1>Create your account</h1>
+        <p>Join us and start saving your favorite links — organized, searchable, and always within reach.</p>
         <div class="name">
           <label for="">Full Name</label>
-          <input type="text" id="signupUsername">
+          <input type="text" id="signupUsername" required>
+        </div>
+        <div class="email">
+          <label for="">Email</label>
+          <input type="email" id="signupUserEmail" required>
         </div>
         <div class="password">
           <label for="password">Password</label>
-          <input type="password" id="signupPassword">
+          <input type="password" id="signupPassword" required>
         </div>
-        <button id="signupButton">Sign Up</button>
-        <p>
-          <button id="toggleSignup">Already have an account? Login</button>
+        <button id="signupButton" class="signupBtn">Sign Up</button>
+        <p class="loginLink">
+          Already have an account? <a href="#" id="toggleSignup">Login</a>
         </p>
       </div>
       <!-- ===== signup section ends ===== -->
@@ -44,10 +48,10 @@
           <input type="password" id="loginPassword">
         </div>
         <button id="loginButton" class="loginBtn">Log in</button>
-        <p class="resetMsg">
+        <p class="resetLink">
           Forgot Password? <a href="#" id="forgotLink" class="forgot-btn">Reset it</a>
         </p>
-        <p class="signupMsg">
+        <p class="signupLink">
           Don't have an account? <a href="#" id="toggleLogin">Sign Up</a>
         </p>
       </div>
@@ -55,15 +59,15 @@
       <!-- ===== forget password section starts ===== -->
       <div id="forgotForm" style="display: none;">
         <img src="assets/images/logo-light-theme.svg" id="forgotLogo" alt="">
-        <h1>Reset your password</h1>
-        <p>Enter your email and we’ll send a reset link.</p>
+        <h1>Forgot your password?</h1>
+        <p>Enter your email address below and we’ll send you a link to reset your password.</p>
         <div class="email">
-          <label for="forgotEmail">Email</label>
-          <input type="email" id="forgotEmail">
+          <label for="forgotEmail">Email*</label>
+          <input type="email" id="forgotEmail" required>
         </div>
-        <button id="forgotButton">Send Reset Link</button>
-        <p>
-          <button id="toggleForgotLogin">Back to Login</button>
+        <button id="forgotButton" class="resetBtn">Send reset link</button>
+        <p  class="backToLoginLink">
+          <a href="#" id="toggleForgotLogin">Back to Login</a>
         </p>
       </div>
       <!-- ===== forget password section ends ===== -->

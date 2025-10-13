@@ -1,14 +1,31 @@
+// ===== google fonts link =====
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+// ===== import variables and mixins =====
 @import "variables";
 @import "mixins";
 
+// ===== common css starts =====
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* Default light mode */
+// ===== common css ends =====
+
+// ===== Button position and style =====
+#themeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+// ===== Default light mode =====
 body {
   font-family: "Manrope", sans-serif;
   background-color: $primary-bg;
@@ -19,7 +36,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    #loginForm{
+    // ===== login part starts =====
+    #loginForm, #signupForm, #forgotForm{
       width: 448px;
       height: 543px;
       background: #FFF;
@@ -57,7 +75,7 @@ body {
         // letter-spacing: 1px;
         margin-bottom: 32px;
       }
-      .loginBtn{
+      .loginBtn, .signupBtn, .resetBtn{
         width: 100%;
         height: 45px;
         border-radius: 8px;
@@ -70,7 +88,7 @@ body {
         font-size: 16px;
         cursor: pointer;
       }
-      .resetMsg, .signupMsg{
+      .resetLink, .signupLink, .loginLink, .backToLoginLink{
         text-align: center;
         margin-bottom: 0;
         color: #4C5C59;
@@ -83,16 +101,24 @@ body {
         }
       }
     }
+    // ===== login part ends =====
+    #signupForm{
+      height: 618px;
+    }
+    #forgotForm{
+      height: 443px;
+    }
   }
 }
 
 
-/* Dark mode */
+// ===== Dark mode css =====
 body.dark {
   background-color: $dark-bg;
   color: white;
   #accountForm{
-    #loginForm{
+    // ===== login part starts =====
+    #loginForm, #signupForm, #forgotForm{
       background: #001F1F;
       input{
         background: #002E2D;
@@ -109,6 +135,24 @@ body.dark {
         border-color: #00706E;
       }
     }
+    // ===== login part ends =====
+  }
+}
+
+
+
+// ===== for mobile view responsive =====
+@media screen and (max-width: 480px){
+  body {
+    padding: 0 10px;
+    #accountForm{
+      #loginForm, #signupForm, #forgotForm{
+        width: 343px;
+      }
+      #signupForm{
+        height: 635px;
+      }
+    }
   }
 }
 
@@ -122,14 +166,3 @@ body.dark {
 
 
 
-/* Button position and style (optional) */
-#themeToggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 8px 14px;
-  border: none;
-  cursor: pointer;
-  background-color: #ddd;
-  border-radius: 6px;
-}
