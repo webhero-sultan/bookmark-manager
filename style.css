@@ -28,19 +28,19 @@ body #accountForm {
   align-items: center;
   height: 100vh;
 }
-body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm {
+body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm, body #accountForm #newPasswordForm {
   width: 448px;
   background: #FFF;
   border-radius: 12px;
   padding: 40px 32px;
 }
-body #accountForm #loginForm label, body #accountForm #signupForm label, body #accountForm #forgotForm label {
+body #accountForm #loginForm label, body #accountForm #signupForm label, body #accountForm #forgotForm label, body #accountForm #newPasswordForm label {
   display: block;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
 }
-body #accountForm #loginForm input, body #accountForm #signupForm input, body #accountForm #forgotForm input {
+body #accountForm #loginForm input, body #accountForm #signupForm input, body #accountForm #forgotForm input, body #accountForm #newPasswordForm input {
   width: 100%;
   height: 45px;
   border-radius: 8px;
@@ -50,23 +50,23 @@ body #accountForm #loginForm input, body #accountForm #signupForm input, body #a
   margin-bottom: 20px;
   outline: none;
 }
-body #accountForm #loginForm input:focus, body #accountForm #signupForm input:focus, body #accountForm #forgotForm input:focus {
+body #accountForm #loginForm input:focus, body #accountForm #signupForm input:focus, body #accountForm #forgotForm input:focus, body #accountForm #newPasswordForm input:focus {
   border-color: #00706E;
   background: #fff;
 }
-body #accountForm #loginForm h1, body #accountForm #signupForm h1, body #accountForm #forgotForm h1 {
+body #accountForm #loginForm h1, body #accountForm #signupForm h1, body #accountForm #forgotForm h1, body #accountForm #newPasswordForm h1 {
   font-size: 24px;
   font-weight: bold;
   margin-top: 32px;
   margin-bottom: 5px;
 }
-body #accountForm #loginForm p, body #accountForm #signupForm p, body #accountForm #forgotForm p {
+body #accountForm #loginForm p, body #accountForm #signupForm p, body #accountForm #forgotForm p, body #accountForm #newPasswordForm p {
   font-size: 14px;
   font-weight: normal;
   color: #4C5C59;
   margin-bottom: 32px;
 }
-body #accountForm #loginForm .loginBtn, body #accountForm #loginForm .signupBtn, body #accountForm #loginForm .resetBtn, body #accountForm #signupForm .loginBtn, body #accountForm #signupForm .signupBtn, body #accountForm #signupForm .resetBtn, body #accountForm #forgotForm .loginBtn, body #accountForm #forgotForm .signupBtn, body #accountForm #forgotForm .resetBtn {
+body #accountForm #loginForm .loginBtn, body #accountForm #loginForm .signupBtn, body #accountForm #loginForm .resetBtn, body #accountForm #loginForm .updateBtn, body #accountForm #signupForm .loginBtn, body #accountForm #signupForm .signupBtn, body #accountForm #signupForm .resetBtn, body #accountForm #signupForm .updateBtn, body #accountForm #forgotForm .loginBtn, body #accountForm #forgotForm .signupBtn, body #accountForm #forgotForm .resetBtn, body #accountForm #forgotForm .updateBtn, body #accountForm #newPasswordForm .loginBtn, body #accountForm #newPasswordForm .signupBtn, body #accountForm #newPasswordForm .resetBtn, body #accountForm #newPasswordForm .updateBtn {
   width: 100%;
   height: 45px;
   border-radius: 8px;
@@ -79,19 +79,19 @@ body #accountForm #loginForm .loginBtn, body #accountForm #loginForm .signupBtn,
   font-size: 16px;
   cursor: pointer;
 }
-body #accountForm #loginForm .resetLink, body #accountForm #loginForm .signupLink, body #accountForm #loginForm .loginLink, body #accountForm #loginForm .backToLoginLink, body #accountForm #signupForm .resetLink, body #accountForm #signupForm .signupLink, body #accountForm #signupForm .loginLink, body #accountForm #signupForm .backToLoginLink, body #accountForm #forgotForm .resetLink, body #accountForm #forgotForm .signupLink, body #accountForm #forgotForm .loginLink, body #accountForm #forgotForm .backToLoginLink {
+body #accountForm #loginForm .resetLink, body #accountForm #loginForm .signupLink, body #accountForm #loginForm .loginLink, body #accountForm #loginForm .backToLoginLink, body #accountForm #signupForm .resetLink, body #accountForm #signupForm .signupLink, body #accountForm #signupForm .loginLink, body #accountForm #signupForm .backToLoginLink, body #accountForm #forgotForm .resetLink, body #accountForm #forgotForm .signupLink, body #accountForm #forgotForm .loginLink, body #accountForm #forgotForm .backToLoginLink, body #accountForm #newPasswordForm .resetLink, body #accountForm #newPasswordForm .signupLink, body #accountForm #newPasswordForm .loginLink, body #accountForm #newPasswordForm .backToLoginLink {
   text-align: center;
   margin-bottom: 0;
   color: #4C5C59;
   margin-top: 12px;
   font-size: 14px;
 }
-body #accountForm #loginForm .resetLink a, body #accountForm #loginForm .signupLink a, body #accountForm #loginForm .loginLink a, body #accountForm #loginForm .backToLoginLink a, body #accountForm #signupForm .resetLink a, body #accountForm #signupForm .signupLink a, body #accountForm #signupForm .loginLink a, body #accountForm #signupForm .backToLoginLink a, body #accountForm #forgotForm .resetLink a, body #accountForm #forgotForm .signupLink a, body #accountForm #forgotForm .loginLink a, body #accountForm #forgotForm .backToLoginLink a {
+body #accountForm #loginForm .resetLink a, body #accountForm #loginForm .signupLink a, body #accountForm #loginForm .loginLink a, body #accountForm #loginForm .backToLoginLink a, body #accountForm #signupForm .resetLink a, body #accountForm #signupForm .signupLink a, body #accountForm #signupForm .loginLink a, body #accountForm #signupForm .backToLoginLink a, body #accountForm #forgotForm .resetLink a, body #accountForm #forgotForm .signupLink a, body #accountForm #forgotForm .loginLink a, body #accountForm #forgotForm .backToLoginLink a, body #accountForm #newPasswordForm .resetLink a, body #accountForm #newPasswordForm .signupLink a, body #accountForm #newPasswordForm .loginLink a, body #accountForm #newPasswordForm .backToLoginLink a {
   font-weight: 700;
   color: #051513;
   text-decoration: none;
 }
-body #accountForm #loginForm .msg, body #accountForm #signupForm .msg, body #accountForm #forgotForm .msg {
+body #accountForm #loginForm .msg, body #accountForm #signupForm .msg, body #accountForm #forgotForm .msg, body #accountForm #newPasswordForm .msg {
   margin-bottom: 0px;
 }
 
@@ -99,21 +99,21 @@ body.dark {
   background-color: #001414;
   color: white;
 }
-body.dark #accountForm #loginForm, body.dark #accountForm #signupForm, body.dark #accountForm #forgotForm {
+body.dark #accountForm #loginForm, body.dark #accountForm #signupForm, body.dark #accountForm #forgotForm, body.dark #accountForm #newPasswordForm {
   background: #001F1F;
 }
-body.dark #accountForm #loginForm input, body.dark #accountForm #signupForm input, body.dark #accountForm #forgotForm input {
+body.dark #accountForm #loginForm input, body.dark #accountForm #signupForm input, body.dark #accountForm #forgotForm input, body.dark #accountForm #newPasswordForm input {
   background: #002E2D;
   border-color: #00706E;
   color: #FFF;
 }
-body.dark #accountForm #loginForm p, body.dark #accountForm #signupForm p, body.dark #accountForm #forgotForm p {
+body.dark #accountForm #loginForm p, body.dark #accountForm #signupForm p, body.dark #accountForm #forgotForm p, body.dark #accountForm #newPasswordForm p {
   color: #B1B9B9;
 }
-body.dark #accountForm #loginForm a, body.dark #accountForm #signupForm a, body.dark #accountForm #forgotForm a {
+body.dark #accountForm #loginForm a, body.dark #accountForm #signupForm a, body.dark #accountForm #forgotForm a, body.dark #accountForm #newPasswordForm a {
   color: #fff;
 }
-body.dark #accountForm #loginForm .loginBtn, body.dark #accountForm #signupForm .loginBtn, body.dark #accountForm #forgotForm .loginBtn {
+body.dark #accountForm #loginForm .loginBtn, body.dark #accountForm #signupForm .loginBtn, body.dark #accountForm #forgotForm .loginBtn, body.dark #accountForm #newPasswordForm .loginBtn {
   border-color: #00706E;
 }
 
@@ -121,7 +121,7 @@ body.dark #accountForm #loginForm .loginBtn, body.dark #accountForm #signupForm 
   body {
     padding: 0 10px;
   }
-  body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm {
+  body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm, body #accountForm #newPasswordForm {
     width: 343px;
   }
 }/*# sourceMappingURL=style.css.map */

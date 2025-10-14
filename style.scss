@@ -37,7 +37,7 @@ body {
     align-items: center;
     height: 100vh;
     // ===== login part starts =====
-    #loginForm, #signupForm, #forgotForm{
+    #loginForm, #signupForm, #forgotForm, #newPasswordForm{
       width: 448px;
       // height: 543px;
       background: #FFF;
@@ -76,7 +76,7 @@ body {
         // letter-spacing: 1px;
         margin-bottom: 32px;
       }
-      .loginBtn, .signupBtn, .resetBtn{
+      .loginBtn, .signupBtn, .resetBtn, .updateBtn{
         width: 100%;
         height: 45px;
         border-radius: 8px;
@@ -116,7 +116,7 @@ body.dark {
   color: white;
   #accountForm{
     // ===== login part starts =====
-    #loginForm, #signupForm, #forgotForm{
+    #loginForm, #signupForm, #forgotForm, #newPasswordForm{
       background: #001F1F;
       input{
         background: #002E2D;
@@ -144,7 +144,7 @@ body.dark {
   body {
     padding: 0 10px;
     #accountForm{
-      #loginForm, #signupForm, #forgotForm{
+      #loginForm, #signupForm, #forgotForm, #newPasswordForm{
         width: 343px;
       }
     }

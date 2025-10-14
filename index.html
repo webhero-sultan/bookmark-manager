@@ -76,11 +76,22 @@
       <!-- ===== forget password section ends ===== -->
       <!-- ===== Reset Password Section Starts ===== -->
       <div id="newPasswordForm" style="display: none;">
-        <h3>Reset Your Password</h3>
-        <input type="password" id="newPassword" placeholder="Enter new password">
-        <input type="password" id="confirmPassword" placeholder="Confirm new password">
-        <button id="savePasswordButton">Save Password</button>
-        <p id="resetMsg"></p>
+        <img src="assets/images/logo-light-theme.svg" id="forgotLogo" alt="">
+        <h1>Reset Your Password</h1>
+        <p>Enter your new password below. Make sure it’s strong and secure.</p>
+        <div class="newPass">
+          <label for="">New Password*</label>
+          <input type="password" id="newPassword">
+        </div>
+        <div class="confirmPass">
+          <label for="">Confirm Password*</label>
+          <input type="password" id="confirmPassword">
+        </div>
+        <p id="resetMsg" class="msg"></p>
+        <button id="savePasswordButton" class="updateBtn">Reset Password</button>
+        <p  class="backToLoginLink">
+          <a href="#" id="updateLogin">Back to Login</a>
+        </p>
       </div>
       <!-- ===== Reset Password Section Ends ===== -->
     </div>

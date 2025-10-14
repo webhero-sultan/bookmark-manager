@@ -156,7 +156,6 @@ if (loginButton) {
 }
 
 // ===== RESET PASSWORD FEATURE =====
-
 // Step 1: When user enters email and clicks "Send reset link"
 var forgotButton = document.getElementById("forgotButton");
 var forgotEmailInput = document.getElementById("forgotEmail");
@@ -231,14 +230,27 @@ if (savePasswordButton) {
       resetMsg.textContent = "Password updated successfully!";
       resetMsg.style.color = "green";
 
-      // Go back to login form after 2 seconds
-      setTimeout(function() {
-        document.getElementById("newPasswordForm").style.display = "none";
-        document.getElementById("loginForm").style.display = "block";
-        resetMsg.textContent = "";
-        document.getElementById("newPassword").value = "";
-        document.getElementById("confirmPassword").value = "";
-      }, 2000);
+      // ===== GO BACK TO LOGIN PAGE AFTER PASSWORD RESET =====
+var updateLoginLink = document.getElementById("updateLogin");
+
+if (updateLoginLink) {
+  updateLoginLink.addEventListener("click", function(event) {
+    // stop the link from refreshing the page
+    event.preventDefault();
+
+    // hide reset password form
+    document.getElementById("newPasswordForm").style.display = "none";
+
+    // show login form
+    document.getElementById("loginForm").style.display = "block";
+
+    // clear message and inputs
+    document.getElementById("resetMsg").textContent = "";
+    document.getElementById("newPassword").value = "";
+    document.getElementById("confirmPassword").value = "";
+  });
+}
+
     }
   });
 }
