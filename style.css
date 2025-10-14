@@ -91,6 +91,9 @@ body #accountForm #loginForm .resetLink a, body #accountForm #loginForm .signupL
   color: #051513;
   text-decoration: none;
 }
+body #accountForm #loginForm .msg, body #accountForm #signupForm .msg, body #accountForm #forgotForm .msg {
+  margin-bottom: 0px;
+}
 
 body.dark {
   background-color: #001414;

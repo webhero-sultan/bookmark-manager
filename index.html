@@ -67,12 +67,22 @@
           <label for="forgotEmail">Email*</label>
           <input type="email" id="forgotEmail" required>
         </div>
+        <p id="forgotMsg" class="msg"></p>
         <button id="forgotButton" class="resetBtn">Send reset link</button>
         <p  class="backToLoginLink">
           <a href="#" id="toggleForgotLogin">Back to Login</a>
         </p>
       </div>
       <!-- ===== forget password section ends ===== -->
+      <!-- ===== Reset Password Section Starts ===== -->
+      <div id="newPasswordForm" style="display: none;">
+        <h3>Reset Your Password</h3>
+        <input type="password" id="newPassword" placeholder="Enter new password">
+        <input type="password" id="confirmPassword" placeholder="Confirm new password">
+        <button id="savePasswordButton">Save Password</button>
+        <p id="resetMsg"></p>
+      </div>
+      <!-- ===== Reset Password Section Ends ===== -->
     </div>
   </div>
   <!-- ===== signup and login section ends ===== -->

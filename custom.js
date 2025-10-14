@@ -155,6 +155,98 @@ if (loginButton) {
   });
 }
 
+// ===== RESET PASSWORD FEATURE =====
+
+// Step 1: When user enters email and clicks "Send reset link"
+var forgotButton = document.getElementById("forgotButton");
+var forgotEmailInput = document.getElementById("forgotEmail");
+var forgotMsg = document.getElementById("forgotMsg");
+
+if (forgotButton) {
+  forgotButton.addEventListener("click", function() {
+    var enteredEmail = forgotEmailInput.value.trim();
+
+    if (enteredEmail === "") {
+      forgotMsg.textContent = "Please enter your email.";
+      forgotMsg.style.color = "red";
+      return;
+    }
+
+    // Get all users from localStorage (it's an object keyed by email)
+    var users = JSON.parse(localStorage.getItem("users") || "{}");
+
+    if (users[enteredEmail]) {
+      // save the email temporarily in sessionStorage
+      sessionStorage.setItem("resetEmail", enteredEmail);
+
+      // hide forgot form, show new password form
+      document.getElementById("forgotForm").style.display = "none";
+      document.getElementById("newPasswordForm").style.display = "block";
+      forgotMsg.textContent = "";
+    } else {
+      forgotMsg.textContent = "Email not found. Please check or sign up first.";
+      forgotMsg.style.color = "red";
+    }
+  });
+}
+
+// Step 2: When user enters new password and confirms
+var savePasswordButton = document.getElementById("savePasswordButton");
+if (savePasswordButton) {
+  savePasswordButton.addEventListener("click", function() {
+    var newPassword = document.getElementById("newPassword").value.trim();
+    var confirmPassword = document.getElementById("confirmPassword").value.trim();
+    var resetMsg = document.getElementById("resetMsg");
+
+    if (newPassword === "" || confirmPassword === "") {
+      resetMsg.textContent = "Please fill both fields.";
+      resetMsg.style.color = "red";
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      resetMsg.textContent = "Passwords do not match!";
+      resetMsg.style.color = "red";
+      return;
+    }
+
+    // Read email from sessionStorage
+    var currentResetEmail = sessionStorage.getItem("resetEmail");
+
+    if (!currentResetEmail) {
+      resetMsg.textContent = "No reset request found. Please try again.";
+      resetMsg.style.color = "red";
+      return;
+    }
+
+    // Get users object from localStorage
+    var users = JSON.parse(localStorage.getItem("users") || "{}");
+
+    // Update password for this email
+    if (users[currentResetEmail]) {
+      users[currentResetEmail].password = newPassword;
+      localStorage.setItem("users", JSON.stringify(users));
+      sessionStorage.removeItem("resetEmail");
+
+      resetMsg.textContent = "Password updated successfully!";
+      resetMsg.style.color = "green";
+
+      // Go back to login form after 2 seconds
+      setTimeout(function() {
+        document.getElementById("newPasswordForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "block";
+        resetMsg.textContent = "";
+        document.getElementById("newPassword").value = "";
+        document.getElementById("confirmPassword").value = "";
+      }, 2000);
+    }
+  });
+}
+
+
+
+
+
 
 
   // ===== FORM TOGGLE LOGIC =====
