@@ -17,18 +17,19 @@
         <h1>Create your account</h1>
         <p>Join us and start saving your favorite links — organized, searchable, and always within reach.</p>
         <div class="name">
-          <label for="">Full Name*</label>
+          <label for="">Full Name *</label>
           <input type="text" id="signupUsername" autocomplete="off" required>
         </div>
         <div class="email">
-          <label for="">Email*</label>
+          <label for="">Email *</label>
           <input type="email" id="signupUserEmail" required>
         </div>
+        <p id="wrongEmailMsg" class="msg"></p>
         <div class="password">
-          <label for="password">Password*</label>
+          <label for="password">Password *</label>
           <input type="password" id="signupPassword" autocomplete="off" required>
         </div>
-        <p id="signupMsg" class="msg"></p>
+        <p id="invalidPassMsg" class="msg"></p>
         <button id="signupButton" class="signupBtn">Sign Up</button>
         <p class="loginLink">
           Already have an account? <a href="#" id="toggleSignup">Login</a>
@@ -42,11 +43,11 @@
         <p>Welcome back! Please enter your details.</p>
         <div class="email">
           <label for="email">Email</label>
-          <input type="email" id="loginUsername">
+          <input type="email" id="loginUsername" autocomplete="off">
         </div>
         <div class="password">
           <label for="password">Password</label>
-          <input type="password" id="loginPassword">
+          <input type="password" id="loginPassword" autocomplete="new-password">
         </div>
         <p id="loginMsg" class="msg"></p>
         <button id="loginButton" class="loginBtn">Log in</button>

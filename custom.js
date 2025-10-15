@@ -67,47 +67,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===== SIGNUP LOGIC =====
 const signupButton = document.getElementById("signupButton");
+
 if (signupButton) {
   signupButton.addEventListener("click", () => {
     const fullName = document.getElementById("signupUsername").value.trim();
-    const email = document.getElementById("signupUserEmail").value.trim();
-    const password = document.getElementById("signupPassword").value;
-    const signupMessage = document.getElementById("signupMsg");
+    const emailInput = document.getElementById("signupUserEmail");
+    const passwordInput = document.getElementById("signupPassword");
 
-    // Simple email validation (must be a valid format and end with @gmail.com)
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    const wrongEmailMsg = document.getElementById("wrongEmailMsg");
+    const invalidPassMsg = document.getElementById("invalidPassMsg");
+
+    // Reset previous messages and input styles
+    wrongEmailMsg.textContent = "";
+    invalidPassMsg.textContent = "";
+    emailInput.classList.remove("error");
+    passwordInput.classList.remove("error");
+    emailInput.classList.add("fine");
+    passwordInput.classList.add("fine");
+
+    // Simple Gmail validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
+    // Check required fields
     if (!fullName || !email || !password) {
-      signupMessage.textContent = "All fields are required.";
-      signupMessage.style.color = "red";
+      alert("All fields are required!");
       return;
     }
 
+    // Email validation
     if (!emailRegex.test(email)) {
-      signupMessage.textContent = "Please enter a valid Gmail address (example@gmail.com).";
-      signupMessage.style.color = "red";
+      wrongEmailMsg.textContent = "Please input a valid Gmail address.";
+      wrongEmailMsg.style.color = "red";
+      emailInput.classList.add("error");
+      emailInput.classList.remove("fine");
       return;
     }
 
+    // Password validation
+    if (password.length < 8) {
+      invalidPassMsg.textContent = "Password must be at least 8 characters long.";
+      invalidPassMsg.style.color = "red";
+      passwordInput.classList.add("error");
+      passwordInput.classList.remove("fine");
+      return;
+    }
+
+    // Load existing users
     let users = JSON.parse(localStorage.getItem("users") || "{}");
+
+    // Check if email already exists
     if (users[email]) {
-      signupMessage.textContent = "This email is already registered. Try logging in.";
-      signupMessage.style.color = "red";
+      wrongEmailMsg.textContent = "This email is already registered. Try logging in.";
+      wrongEmailMsg.style.color = "red";
+      emailInput.classList.add("error");
       return;
     }
 
+    // Save new user
     users[email] = { fullName, password, bookmarks: [] };
     localStorage.setItem("users", JSON.stringify(users));
 
-    signupMessage.textContent = "Signup successful! You can now log in.";
-    signupMessage.style.color = "green";
+    // Success message
+    invalidPassMsg.textContent = "Signup successful! You can now log in.";
+    invalidPassMsg.style.color = "green";
 
-    // Clear form
+    // Clear inputs
     document.getElementById("signupUsername").value = "";
-    document.getElementById("signupUserEmail").value = "";
-    document.getElementById("signupPassword").value = "";
+    emailInput.value = "";
+    passwordInput.value = "";
   });
 }
+
+
 
 
 // ===== LOGIN LOGIC (by email) =====
