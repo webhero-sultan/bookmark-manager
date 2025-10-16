@@ -70,55 +70,79 @@ const signupButton = document.getElementById("signupButton");
 
 if (signupButton) {
   signupButton.addEventListener("click", () => {
-    const fullName = document.getElementById("signupUsername").value.trim();
+    const fullNameInput = document.getElementById("signupUsername");
     const emailInput = document.getElementById("signupUserEmail");
     const passwordInput = document.getElementById("signupPassword");
 
+    const fullName = fullNameInput.value.trim();
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
+    const nameMsg = document.getElementById("nameMsg");
     const wrongEmailMsg = document.getElementById("wrongEmailMsg");
     const invalidPassMsg = document.getElementById("invalidPassMsg");
 
-    // Reset previous messages and input styles
-    wrongEmailMsg.textContent = "";
-    invalidPassMsg.textContent = "";
-    emailInput.classList.remove("error");
-    passwordInput.classList.remove("error");
-    emailInput.classList.add("fine");
-    passwordInput.classList.add("fine");
+    // Reset styles and messages
+    [fullNameInput, emailInput, passwordInput].forEach(input => {
+      input.classList.remove("error");
+      input.classList.add("fine");
+    });
+    [nameMsg, wrongEmailMsg, invalidPassMsg].forEach(msg => (msg.textContent = ""));
 
-    // Simple Gmail validation
+    // Gmail validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
-    // Check required fields
-    if (!fullName || !email || !password) {
-      alert("All fields are required!");
-      return;
+    let hasError = false;
+
+    // === Required field checks ===
+    if (!fullName) {
+      nameMsg.textContent = "This field is required";
+      nameMsg.style.color = "red";
+      fullNameInput.classList.add("error");
+      fullNameInput.classList.remove("fine");
+      hasError = true;
     }
 
-    // Email validation
+    if (!email) {
+      wrongEmailMsg.textContent = "This field is required";
+      wrongEmailMsg.style.color = "red";
+      emailInput.classList.add("error");
+      emailInput.classList.remove("fine");
+      hasError = true;
+    }
+
+    if (!password) {
+      invalidPassMsg.textContent = "This field is required";
+      invalidPassMsg.style.color = "red";
+      passwordInput.classList.add("error");
+      passwordInput.classList.remove("fine");
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    // === Email validation ===
     if (!emailRegex.test(email)) {
-      wrongEmailMsg.textContent = "Please input a valid Gmail address.";
+      wrongEmailMsg.textContent = "Enter a valid Gmail address.";
       wrongEmailMsg.style.color = "red";
       emailInput.classList.add("error");
       emailInput.classList.remove("fine");
       return;
     }
 
-    // Password validation
+    // === Password validation ===
     if (password.length < 8) {
-      invalidPassMsg.textContent = "Password must be at least 8 characters long.";
+      invalidPassMsg.textContent = "Must be at least 8 characters long.";
       invalidPassMsg.style.color = "red";
       passwordInput.classList.add("error");
       passwordInput.classList.remove("fine");
       return;
     }
 
-    // Load existing users
+    // === Load existing users ===
     let users = JSON.parse(localStorage.getItem("users") || "{}");
 
-    // Check if email already exists
+    // === Check if email already exists ===
     if (users[email]) {
       wrongEmailMsg.textContent = "This email is already registered. Try logging in.";
       wrongEmailMsg.style.color = "red";
@@ -126,20 +150,23 @@ if (signupButton) {
       return;
     }
 
-    // Save new user
+    // === Save new user ===
     users[email] = { fullName, password, bookmarks: [] };
     localStorage.setItem("users", JSON.stringify(users));
 
-    // Success message
+    // === Success message ===
     invalidPassMsg.textContent = "Signup successful! You can now log in.";
     invalidPassMsg.style.color = "green";
 
-    // Clear inputs
-    document.getElementById("signupUsername").value = "";
+    // === Clear inputs ===
+    fullNameInput.value = "";
     emailInput.value = "";
     passwordInput.value = "";
   });
 }
+
+
+
 
 
 
@@ -237,6 +264,13 @@ if (savePasswordButton) {
       return;
     }
 
+    // ✅ New rule: Password must be at least 8 characters long
+    if (newPassword.length < 8) {
+      resetMsg.textContent = "Password must be at least 8 characters long.";
+      resetMsg.style.color = "red";
+      return;
+    }
+
     if (newPassword !== confirmPassword) {
       resetMsg.textContent = "Passwords do not match!";
       resetMsg.style.color = "red";
@@ -260,34 +294,25 @@ if (savePasswordButton) {
       users[currentResetEmail].password = newPassword;
       localStorage.setItem("users", JSON.stringify(users));
       sessionStorage.removeItem("resetEmail");
-
       resetMsg.textContent = "Password updated successfully!";
       resetMsg.style.color = "green";
+    }
+  });
+}
 
-      // ===== GO BACK TO LOGIN PAGE AFTER PASSWORD RESET =====
+// ===== GO BACK TO LOGIN PAGE AFTER PASSWORD RESET =====
 var updateLoginLink = document.getElementById("updateLogin");
-
 if (updateLoginLink) {
   updateLoginLink.addEventListener("click", function(event) {
-    // stop the link from refreshing the page
     event.preventDefault();
-
-    // hide reset password form
     document.getElementById("newPasswordForm").style.display = "none";
-
-    // show login form
     document.getElementById("loginForm").style.display = "block";
-
-    // clear message and inputs
     document.getElementById("resetMsg").textContent = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("confirmPassword").value = "";
   });
 }
 
-    }
-  });
-}
 
 
 

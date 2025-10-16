@@ -15,19 +15,20 @@
       <div id="signupForm" style="display: none;">
         <img src="assets/images/logo-light-theme.svg" id="signupLogo" alt="">
         <h1>Create your account</h1>
-        <p>Join us and start saving your favorite links — organized, searchable, and always within reach.</p>
+        <p class="cardPara">Join us and start saving your favorite links — organized, searchable, and always within reach.</p>
         <div class="name">
           <label for="">Full Name *</label>
-          <input type="text" id="signupUsername" autocomplete="off" required>
+          <input type="text" id="signupUsername" autocomplete="off" name="signupUsername" class="noMargin">
         </div>
+        <p id="nameMsg" class="msg"></p>
         <div class="email">
           <label for="">Email *</label>
-          <input type="email" id="signupUserEmail" required>
+          <input type="email" id="signupUserEmail" autocomplete="off" name="signupUserEmail" class="noMargin">
         </div>
         <p id="wrongEmailMsg" class="msg"></p>
         <div class="password">
           <label for="password">Password *</label>
-          <input type="password" id="signupPassword" autocomplete="off" required>
+          <input type="password" id="signupPassword" autocomplete="off" name="signupPassword" class="noMargin">
         </div>
         <p id="invalidPassMsg" class="msg"></p>
         <button id="signupButton" class="signupBtn">Sign Up</button>
@@ -40,14 +41,14 @@
       <div id="loginForm">
         <img src="assets/images/logo-light-theme.svg" id="themeLogo" alt="">
         <h1>Log in to your account</h1>
-        <p>Welcome back! Please enter your details.</p>
+        <p class="cardPara">Welcome back! Please enter your details.</p>
         <div class="email">
           <label for="email">Email</label>
-          <input type="email" id="loginUsername" autocomplete="off">
+          <input type="email" id="loginUsername" autocomplete="off" class="noMargin">
         </div>
         <div class="password">
           <label for="password">Password</label>
-          <input type="password" id="loginPassword" autocomplete="new-password">
+          <input type="password" id="loginPassword" autocomplete="new-password" class="noMargin">
         </div>
         <p id="loginMsg" class="msg"></p>
         <button id="loginButton" class="loginBtn">Log in</button>
@@ -63,10 +64,10 @@
       <div id="forgotForm" style="display: none;">
         <img src="assets/images/logo-light-theme.svg" id="forgotLogo" alt="">
         <h1>Forgot your password?</h1>
-        <p>Enter your email address below and we’ll send you a link to reset your password.</p>
+        <p class="cardPara">Enter your email address below and we’ll send you a link to reset your password.</p>
         <div class="email">
           <label for="forgotEmail">Email*</label>
-          <input type="email" id="forgotEmail" required>
+          <input type="email" id="forgotEmail" required class="noMargin">
         </div>
         <p id="forgotMsg" class="msg"></p>
         <button id="forgotButton" class="resetBtn">Send reset link</button>
@@ -79,14 +80,14 @@
       <div id="newPasswordForm" style="display: none;">
         <img src="assets/images/logo-light-theme.svg" id="forgotLogo" alt="">
         <h1>Reset Your Password</h1>
-        <p>Enter your new password below. Make sure it’s strong and secure.</p>
+        <p class="cardPara">Enter your new password below. Make sure it’s strong and secure.</p>
         <div class="newPass">
           <label for="">New Password*</label>
-          <input type="password" id="newPassword">
+          <input type="password" id="newPassword" class="noMargin">
         </div>
         <div class="confirmPass">
           <label for="">Confirm Password*</label>
-          <input type="password" id="confirmPassword">
+          <input type="password" id="confirmPassword" class="noMargin">
         </div>
         <p id="resetMsg" class="msg"></p>
         <button id="savePasswordButton" class="updateBtn">Reset Password</button>
