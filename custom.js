@@ -178,6 +178,7 @@ if (loginButton) {
     const email = document.getElementById("loginUsername").value.trim();
     const password = document.getElementById("loginPassword").value;
     const loginMessage = document.getElementById("loginMsg");
+    const loginUserMessage = document.getElementById("loginUserMsg");
 
     // create message element if missing
     let msg = loginMessage;
@@ -199,14 +200,14 @@ if (loginButton) {
     const user = users[email];
 
     if (!user) {
-      msg.textContent = "User not found. Please signup first.";
-      msg.style.color = "red";
+      loginUserMessage.textContent = "User not found. Please signup first.";
+      loginUserMessage.style.color = "red";
       return;
     }
 
     if (user.password !== password) {
-      msg.textContent = "Incorrect password. Try again.";
-      msg.style.color = "red";
+      loginMessage.textContent = "Incorrect password. Try again.";
+      loginMessage.style.color = "red";
       return;
     }
 

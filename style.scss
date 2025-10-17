@@ -114,14 +114,13 @@ body {
         margin-top: 5px;
       }
       /* Make sure this is loaded on the page */
-.error {
-  border: 2px solid red !important;
-  outline: none;
-}
-.fine {
-  border: 1px solid #ccc;
-}
-
+      .error {
+        border: 2px solid red !important;
+        outline: none;
+      }
+      .fine {
+        border: 1px solid #ccc;
+      }
     }
     // ===== login part ends =====
   }
