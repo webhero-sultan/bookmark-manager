@@ -175,49 +175,68 @@ if (signupButton) {
 const loginButton = document.getElementById("loginButton");
 if (loginButton) {
   loginButton.addEventListener("click", () => {
-    const email = document.getElementById("loginUsername").value.trim();
-    const password = document.getElementById("loginPassword").value;
+    const emailInput = document.getElementById("loginUsername");
+    const passwordInput = document.getElementById("loginPassword");
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
     const loginMessage = document.getElementById("loginMsg");
     const loginUserMessage = document.getElementById("loginUserMsg");
 
-    // create message element if missing
-    let msg = loginMessage;
-    if (!msg) {
-      msg = document.createElement("p");
-      msg.id = "loginMsg";
-      loginButton.insertAdjacentElement("afterend", msg);
-    }
+    // Email validation (must be Gmail format)
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
-    msg.textContent = "";
+    // Clear previous messages and styles
+    loginMessage.textContent = "";
+    loginUserMessage.textContent = "";
+    emailInput.classList.remove("error", "fine");
 
-    if (!email || !password) {
-      msg.textContent = "Please enter both email and password.";
-      msg.style.color = "red";
+    // Check if email is empty or invalid format
+    if (!emailRegex.test(email)) {
+      loginUserMessage.textContent = "Enter valid email address";
+      loginUserMessage.style.color = "red";
+      emailInput.classList.add("error");
       return;
     }
 
+    // Add "fine" class for valid format
+    emailInput.classList.add("fine");
+
+    // Check password field empty or not
+    if (!password) {
+      loginMessage.textContent = "Please enter both email and password.";
+      loginMessage.style.color = "red";
+      return;
+    }
+
+    // Get users from local storage
     let users = JSON.parse(localStorage.getItem("users") || "{}");
     const user = users[email];
 
+    // Check if user exists
     if (!user) {
-      loginUserMessage.textContent = "User not found. Please signup first.";
+      loginUserMessage.textContent = "Email not found. Please check or sign up first.";
       loginUserMessage.style.color = "red";
+      emailInput.classList.remove("fine");
+      emailInput.classList.add("error");
       return;
     }
 
+    // Check if password matches
     if (user.password !== password) {
       loginMessage.textContent = "Incorrect password. Try again.";
       loginMessage.style.color = "red";
       return;
     }
 
-    // store the logged in user
+    // Login successful
     localStorage.setItem("currentUser", email);
     window.location.href = "bookmarks.html"; // redirect
   });
 }
 
+
 // ===== RESET PASSWORD FEATURE =====
+
 // Step 1: When user enters email and clicks "Send reset link"
 var forgotButton = document.getElementById("forgotButton");
 var forgotEmailInput = document.getElementById("forgotEmail");
@@ -227,26 +246,46 @@ if (forgotButton) {
   forgotButton.addEventListener("click", function() {
     var enteredEmail = forgotEmailInput.value.trim();
 
+    // Check if input is empty
     if (enteredEmail === "") {
       forgotMsg.textContent = "Please enter your email.";
       forgotMsg.style.color = "red";
+      forgotEmailInput.classList.add("error");
+      forgotEmailInput.classList.remove("fine");
       return;
     }
 
-    // Get all users from localStorage (it's an object keyed by email)
+    // Check if email format is valid (simple regex)
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(enteredEmail)) {
+      forgotMsg.textContent = "Enter a valid email address.";
+      forgotMsg.style.color = "red";
+      forgotEmailInput.classList.add("error");
+      forgotEmailInput.classList.remove("fine");
+      return;
+    }
+
+    // Get all users from localStorage (object keyed by email)
     var users = JSON.parse(localStorage.getItem("users") || "{}");
 
     if (users[enteredEmail]) {
-      // save the email temporarily in sessionStorage
+      // Registered email found
       sessionStorage.setItem("resetEmail", enteredEmail);
 
-      // hide forgot form, show new password form
+      // Reset input styles and message
+      forgotEmailInput.classList.remove("error");
+      forgotEmailInput.classList.add("fine");
+      forgotMsg.textContent = "";
+
+      // Hide forgot form, show new password form
       document.getElementById("forgotForm").style.display = "none";
       document.getElementById("newPasswordForm").style.display = "block";
-      forgotMsg.textContent = "";
     } else {
+      // Email not found
       forgotMsg.textContent = "Email not found. Please check or sign up first.";
       forgotMsg.style.color = "red";
+      forgotEmailInput.classList.add("error");
+      forgotEmailInput.classList.remove("fine");
     }
   });
 }
@@ -262,19 +301,24 @@ if (savePasswordButton) {
     if (newPassword === "" || confirmPassword === "") {
       resetMsg.textContent = "Please fill both fields.";
       resetMsg.style.color = "red";
+      document.getElementById("newPassword").classList.add("error");
+      document.getElementById("confirmPassword").classList.add("error");
       return;
     }
 
-    // ✅ New rule: Password must be at least 8 characters long
     if (newPassword.length < 8) {
       resetMsg.textContent = "Password must be at least 8 characters long.";
       resetMsg.style.color = "red";
+      document.getElementById("newPassword").classList.add("error");
+      document.getElementById("confirmPassword").classList.add("error");
       return;
     }
 
     if (newPassword !== confirmPassword) {
       resetMsg.textContent = "Passwords do not match!";
       resetMsg.style.color = "red";
+      document.getElementById("newPassword").classList.add("error");
+      document.getElementById("confirmPassword").classList.add("error");
       return;
     }
 
@@ -295,8 +339,16 @@ if (savePasswordButton) {
       users[currentResetEmail].password = newPassword;
       localStorage.setItem("users", JSON.stringify(users));
       sessionStorage.removeItem("resetEmail");
+
+      // Success message
       resetMsg.textContent = "Password updated successfully!";
       resetMsg.style.color = "green";
+
+      // Remove error borders
+      document.getElementById("newPassword").classList.remove("error");
+      document.getElementById("confirmPassword").classList.remove("error");
+      document.getElementById("newPassword").classList.add("fine");
+      document.getElementById("confirmPassword").classList.add("fine");
     }
   });
 }
@@ -311,8 +363,15 @@ if (updateLoginLink) {
     document.getElementById("resetMsg").textContent = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("confirmPassword").value = "";
+
+    // Reset input borders
+    document.getElementById("newPassword").classList.remove("error");
+    document.getElementById("confirmPassword").classList.remove("error");
+    document.getElementById("newPassword").classList.add("fine");
+    document.getElementById("confirmPassword").classList.add("fine");
   });
 }
+
 
 
 
@@ -353,5 +412,4 @@ if (updateLoginLink) {
       document.getElementById("loginForm").style.display = "block";
     });
   }
-
 });
