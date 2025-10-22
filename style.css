@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#themeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #E8F0EF;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+body #accountForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm, body #accountForm #newPasswordForm {
+  width: 448px;
+  background: #FFF;
+  border-radius: 12px;
+  padding: 40px 32px;
+  /* Make sure this is loaded on the page */
+}
+body #accountForm #loginForm label, body #accountForm #signupForm label, body #accountForm #forgotForm label, body #accountForm #newPasswordForm label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+body #accountForm #loginForm input, body #accountForm #signupForm input, body #accountForm #forgotForm input, body #accountForm #newPasswordForm input {
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #899492;
+  background: #fff;
+  outline: none;
+}
+body #accountForm #loginForm input:focus, body #accountForm #signupForm input:focus, body #accountForm #forgotForm input:focus, body #accountForm #newPasswordForm input:focus {
+  border-color: #00706E;
+  background: #fff;
+}
+body #accountForm #loginForm h1, body #accountForm #signupForm h1, body #accountForm #forgotForm h1, body #accountForm #newPasswordForm h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 5px;
+}
+body #accountForm #loginForm .cardPara, body #accountForm #signupForm .cardPara, body #accountForm #forgotForm .cardPara, body #accountForm #newPasswordForm .cardPara {
+  margin-bottom: 32px;
+}
+body #accountForm #loginForm p, body #accountForm #signupForm p, body #accountForm #forgotForm p, body #accountForm #newPasswordForm p {
+  font-size: 14px;
+  font-weight: normal;
+  color: #4C5C59;
+}
+body #accountForm #loginForm .noMargin, body #accountForm #signupForm .noMargin, body #accountForm #forgotForm .noMargin, body #accountForm #newPasswordForm .noMargin {
+  margin-bottom: 0;
+}
+body #accountForm #loginForm .loginBtn, body #accountForm #loginForm .signupBtn, body #accountForm #loginForm .resetBtn, body #accountForm #loginForm .updateBtn, body #accountForm #signupForm .loginBtn, body #accountForm #signupForm .signupBtn, body #accountForm #signupForm .resetBtn, body #accountForm #signupForm .updateBtn, body #accountForm #forgotForm .loginBtn, body #accountForm #forgotForm .signupBtn, body #accountForm #forgotForm .resetBtn, body #accountForm #forgotForm .updateBtn, body #accountForm #newPasswordForm .loginBtn, body #accountForm #newPasswordForm .signupBtn, body #accountForm #newPasswordForm .resetBtn, body #accountForm #newPasswordForm .updateBtn {
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #00706E;
+  background: #014745;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+body #accountForm #loginForm .resetLink, body #accountForm #loginForm .signupLink, body #accountForm #loginForm .loginLink, body #accountForm #loginForm .backToLoginLink, body #accountForm #signupForm .resetLink, body #accountForm #signupForm .signupLink, body #accountForm #signupForm .loginLink, body #accountForm #signupForm .backToLoginLink, body #accountForm #forgotForm .resetLink, body #accountForm #forgotForm .signupLink, body #accountForm #forgotForm .loginLink, body #accountForm #forgotForm .backToLoginLink, body #accountForm #newPasswordForm .resetLink, body #accountForm #newPasswordForm .signupLink, body #accountForm #newPasswordForm .loginLink, body #accountForm #newPasswordForm .backToLoginLink {
+  text-align: center;
+  margin-bottom: 0;
+  color: #4C5C59;
+  margin-top: 12px;
+  font-size: 14px;
+}
+body #accountForm #loginForm .resetLink a, body #accountForm #loginForm .signupLink a, body #accountForm #loginForm .loginLink a, body #accountForm #loginForm .backToLoginLink a, body #accountForm #signupForm .resetLink a, body #accountForm #signupForm .signupLink a, body #accountForm #signupForm .loginLink a, body #accountForm #signupForm .backToLoginLink a, body #accountForm #forgotForm .resetLink a, body #accountForm #forgotForm .signupLink a, body #accountForm #forgotForm .loginLink a, body #accountForm #forgotForm .backToLoginLink a, body #accountForm #newPasswordForm .resetLink a, body #accountForm #newPasswordForm .signupLink a, body #accountForm #newPasswordForm .loginLink a, body #accountForm #newPasswordForm .backToLoginLink a {
+  font-weight: 700;
+  color: #051513;
+  text-decoration: none;
+}
+body #accountForm #loginForm .msg, body #accountForm #signupForm .msg, body #accountForm #forgotForm .msg, body #accountForm #newPasswordForm .msg {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+body #accountForm #loginForm .error, body #accountForm #signupForm .error, body #accountForm #forgotForm .error, body #accountForm #newPasswordForm .error {
+  border: 2px solid red !important;
+  outline: none;
+}
+body #accountForm #loginForm .fine, body #accountForm #signupForm .fine, body #accountForm #forgotForm .fine, body #accountForm #newPasswordForm .fine {
+  border: 1px solid #ccc;
+}
+body .bookmark_section {
+  display: flex;
+}
+body .bookmark_section .aside {
+  width: 20%;
+  height: 100vh;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #DDE9E7;
+}
+body .bookmark_section .aside .status {
+  margin: 10px 0;
+}
+body .bookmark_section .aside .status button {
+  width: 100%;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #4C5C59;
+  font-size: 14px;
+  font-weight: 500;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+body .bookmark_section .aside .status button:hover {
+  background: #E8F0EF;
+  color: #000;
+}
+body .bookmark_section .aside .status button i {
+  margin-right: 5px;
+  font-size: 16px;
+}
+body .bookmark_section .aside .tags p {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #4C5C59;
+  font-weight: bold;
+  margin-left: 12px;
+}
+body .bookmark_section .aside .tag_list {
+  margin-top: 10px;
+}
+body .bookmark_section .aside .tag_list .tag_item {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+body .bookmark_section .aside .tag_list .tag_item .tag_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .bookmark_section .aside .tag_list .tag_item .tag_name input {
+  margin-right: 5px;
+  height: 12px;
+  width: 12px;
+}
+body .bookmark_section .aside .tag_list .tag_item .tag_name p {
+  color: #4C5C59;
+  font-weight: 500;
+  font-size: 14px;
+}
+body .bookmark_section .aside .tag_list .tag_item button {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #DDE9E7;
+  background: #E8F0EF;
+  color: #4C5C59;
+  font-size: 12px;
+}
+body .bookmark_section .main {
+  width: 80%;
+  height: 100vh;
+}
+
+body.dark {
+  background-color: #001414;
+  color: white;
+}
+body.dark #accountForm #loginForm, body.dark #accountForm #signupForm, body.dark #accountForm #forgotForm, body.dark #accountForm #newPasswordForm {
+  background: #001F1F;
+}
+body.dark #accountForm #loginForm input, body.dark #accountForm #signupForm input, body.dark #accountForm #forgotForm input, body.dark #accountForm #newPasswordForm input {
+  background: #002E2D;
+  border-color: #00706E;
+  color: #FFF;
+}
+body.dark #accountForm #loginForm p, body.dark #accountForm #signupForm p, body.dark #accountForm #forgotForm p, body.dark #accountForm #newPasswordForm p {
+  color: #B1B9B9;
+}
+body.dark #accountForm #loginForm a, body.dark #accountForm #signupForm a, body.dark #accountForm #forgotForm a, body.dark #accountForm #newPasswordForm a {
+  color: #fff;
+}
+body.dark #accountForm #loginForm .loginBtn, body.dark #accountForm #signupForm .loginBtn, body.dark #accountForm #forgotForm .loginBtn, body.dark #accountForm #newPasswordForm .loginBtn {
+  border-color: #00706E;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 0 10px;
+  }
+  body #accountForm #loginForm, body #accountForm #signupForm, body #accountForm #forgotForm, body #accountForm #newPasswordForm {
+    width: 343px;
+  }
+}/*# sourceMappingURL=style.css.map */

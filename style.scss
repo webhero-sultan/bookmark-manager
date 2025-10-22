@@ -1,0 +1,264 @@
+// ===== google fonts link =====
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+// ===== import variables and mixins =====
+@import "variables";
+@import "mixins";
+
+// ===== common css starts =====
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// ===== common css ends =====
+
+// ===== Button position and style =====
+#themeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+// ===== Default light mode =====
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: $primary-bg;
+  color: black;
+  transition: background-color .3s, color .3s;
+  #accountForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    // ===== login part starts =====
+    #loginForm, #signupForm, #forgotForm, #newPasswordForm{
+      width: 448px;
+      // height: 543px;
+      background: #FFF;
+      border-radius: 12px;
+      padding: 40px 32px;
+      label{
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-top: 20px;
+      }
+      input{
+        width: 100%;
+        height: 45px;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #899492;
+        background: #fff;
+        // margin-bottom: 20px;
+        outline: none;
+        &:focus{
+          border-color: #00706E;
+          background: #fff;
+        }
+      }
+      h1{
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 32px;
+        margin-bottom: 5px;
+      }
+      .cardPara{
+        margin-bottom: 32px;
+      }
+      p{
+        font-size: 14px;
+        font-weight: normal;
+        color: #4C5C59;
+        // letter-spacing: 1px;
+        // margin-bottom: 32px;
+      }
+      .noMargin{
+        margin-bottom: 0;
+      }
+      .loginBtn, .signupBtn, .resetBtn, .updateBtn{
+        width: 100%;
+        height: 45px;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #00706E;
+        background: #014745;
+        color: #fff;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .resetLink, .signupLink, .loginLink, .backToLoginLink{
+        text-align: center;
+        margin-bottom: 0;
+        color: #4C5C59;
+        margin-top: 12px;
+        font-size: 14px;
+        a{
+          font-weight: 700;
+          color: #051513;
+          text-decoration: none;
+        }
+      }
+      .msg{
+        margin-bottom: 0px;
+        margin-top: 5px;
+      }
+      /* Make sure this is loaded on the page */
+      .error {
+        border: 2px solid red !important;
+        outline: none;
+      }
+      .fine {
+        border: 1px solid #ccc;
+      }
+    }
+    // ===== login part ends =====
+  }
+  .bookmark_section{
+    display: flex;
+    .aside{
+      width: 20%;
+      height: 100vh;
+      background: #fff;
+      padding: 20px;
+      border-right: 1px solid #DDE9E7;
+      .status{
+        margin: 10px 0;
+        button{
+          width: 100%;
+          text-align: start;
+          display: flex;
+          align-items: center;
+          background: none;
+          border: none;
+          padding: 8px 12px;
+          border-radius: 6px;
+          color: #4C5C59;
+          font-size: 14px;
+          font-weight: 500;
+          transition-duration: .5s;
+          cursor: pointer;
+          &:hover{
+            background: #E8F0EF;
+            color: #000;
+          }
+          i{
+            margin-right: 5px;
+            font-size: 16px;
+          }
+        }
+      }
+      .tags{
+        p{
+          text-transform: uppercase;
+          font-size: 12px;
+          color: #4C5C59;
+          font-weight: bold;
+          margin-left: 12px;
+        }
+      }
+      .tag_list{
+        margin-top: 10px;
+        .tag_item{
+          display: flex;
+          justify-content: space-between;
+          margin-left: 12px;
+          margin-bottom: 10px;
+          .tag_name{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            input{
+              margin-right: 5px;
+              height: 12px;
+              width: 12px;
+            }
+            p{
+              color: #4C5C59;
+              font-weight: 500;
+              font-size: 14px;
+            }
+          }
+          button{
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            border: 1px solid #DDE9E7;
+            background: #E8F0EF;
+            color: #4C5C59;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .main{
+      width: 80%;
+      height: 100vh;
+    }
+  }
+}
+
+
+// ==============================================================================
+// =============================== Dark mode css ================================
+// ==============================================================================
+body.dark {
+  background-color: $dark-bg;
+  color: white;
+  #accountForm{
+    // ===== login part starts =====
+    #loginForm, #signupForm, #forgotForm, #newPasswordForm{
+      background: #001F1F;
+      input{
+        background: #002E2D;
+        border-color: #00706E;
+        color: #FFF;
+      }
+      p{
+        color: #B1B9B9;
+      }
+      a{
+        color: #fff;
+      }
+      .loginBtn{
+        border-color: #00706E;
+      }
+    }
+    // ===== login part ends =====
+  }
+}
+
+
+
+// ===== for mobile view responsive =====
+@media screen and (max-width: 480px){
+  body {
+    padding: 0 10px;
+    #accountForm{
+      #loginForm, #signupForm, #forgotForm, #newPasswordForm{
+        width: 343px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
