@@ -16,8 +16,8 @@
 // ===== Button position and style =====
 #themeToggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  bottom: 10px;
+  left: 10px;
   padding: 8px 14px;
   border: none;
   cursor: pointer;
@@ -305,13 +305,13 @@ body {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          row-gap: 40px;
+          row-gap: 30px;
           // display: grid;
           // grid-template-columns: repeat(3, 1fr);
           // gap: 51px;
           .bookmark{
-            width: 360px;
-            height: 280px;
+            width: 320px;
+            height: 250px;
             background: green;
           }
         }

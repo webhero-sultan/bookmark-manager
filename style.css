@@ -7,8 +7,8 @@
 
 #themeToggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  bottom: 10px;
+  left: 10px;
   padding: 8px 14px;
   border: none;
   cursor: pointer;
@@ -288,11 +288,11 @@ body .bookmark_section .main .main_body .bookmarks {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 40px;
+  row-gap: 30px;
 }
 body .bookmark_section .main .main_body .bookmarks .bookmark {
-  width: 360px;
-  height: 280px;
+  width: 320px;
+  height: 250px;
   background: green;
 }
 
