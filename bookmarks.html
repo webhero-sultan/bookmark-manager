@@ -9,12 +9,11 @@
 </head>
 <body>
   <div class="bookmark_section">
+    <!-- ===== aside section starts ===== -->
     <div class="aside">
-      <!-- ===== aside logo section starts ===== -->
       <div class="logo">
         <img src="assets/images/logo-light-theme.svg" id="signupLogo" alt="">
       </div>
-      <!-- ===== aside logo section ends ===== -->
       <!-- ===== status section starts ===== -->
       <div class="status">
         <div class="home">
@@ -25,7 +24,7 @@
         </div>
       </div>
       <!-- ===== status section ends ===== -->
-      <!-- ===== tag section starts ==== -->
+      <!-- ===== tags section starts ==== -->
       <div class="tags">
         <p>Tags</p>
       </div>
@@ -45,19 +44,37 @@
           <button type="button">5</button>
         </div>
       </div>
-      <!-- ===== tag section ends ==== -->
-
+      <!-- ===== tags section ends ==== -->
     </div>
+    <!-- ===== aside section ends ===== -->
+    <!-- ===== main section starts ==== -->
     <div class="main">
-
+      <div class="main_header">
+        <div class="search">
+          <span><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="text" placeholder="Search by title...">
+        </div>
+        <div class="user_bookmark">
+          <div class="bookmark">
+            <button type="button">+ Add Bookmark</button>
+          </div>
+          <div class="user">
+            <img src="assets/images/image-avatar.webp" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="main_body">
+        <h1>All Bookmarks</h1>
+      </div>
     </div>
+    <!-- ===== main section ends ==== -->
   </div>
 
 
 
   <!-- <h1 id="userInfo">Welcome to Bookmark Manager</h1> -->
-  <button id="logoutButton">Logout</button>
-  <button id="themeToggle">Dark Mode</button>
+  <!-- <button id="logoutButton">Logout</button> -->
+  <!-- <button id="themeToggle">Dark Mode</button> -->
 
   <script src="custom.js"></script>
 

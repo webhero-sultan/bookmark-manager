@@ -188,6 +188,59 @@ body .bookmark_section .aside .tag_list .tag_item button {
 body .bookmark_section .main {
   width: 80%;
   height: 100vh;
+  background: #fff;
+}
+body .bookmark_section .main .main_header {
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+body .bookmark_section .main .main_header .search {
+  width: 320px;
+  border: 1px solid #E1EBEA;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+body .bookmark_section .main .main_header .search span {
+  color: #899492;
+}
+body .bookmark_section .main .main_header .search input {
+  width: 100%;
+  border: none;
+  padding: 0 10px;
+  color: #4C5C59;
+  font-size: 16px;
+}
+body .bookmark_section .main .main_header .search input:focus {
+  outline: none;
+}
+body .bookmark_section .main .main_header .user_bookmark {
+  display: flex;
+  align-items: center;
+}
+body .bookmark_section .main .main_header .user_bookmark .bookmark button {
+  background: #014745;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 15px;
+  color: #fff;
+  font-size: 16px;
+}
+body .bookmark_section .main .main_header .user_bookmark .user img {
+  width: 45px;
+}
+body .bookmark_section .main .main_body {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #E8F0EF;
+  padding: 0 32px;
 }
 
 body.dark {
