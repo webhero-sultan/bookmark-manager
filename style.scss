@@ -240,7 +240,7 @@ body {
         .user_bookmark{
           display: flex;
           justify-content: center;
-          .bookmark{
+          .bookmark_button{
             button{
               background: #014745;
               padding: 14px 18px;
@@ -296,6 +296,23 @@ body {
               cursor: pointer;
               font-size: 16px;
             }
+          }
+        }
+        .bookmarks{
+          margin-top: 15px;
+          height: 100%;
+          background: red;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          row-gap: 40px;
+          // display: grid;
+          // grid-template-columns: repeat(3, 1fr);
+          // gap: 51px;
+          .bookmark{
+            width: 360px;
+            height: 280px;
+            background: green;
           }
         }
       }

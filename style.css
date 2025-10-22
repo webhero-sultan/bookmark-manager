@@ -226,7 +226,7 @@ body .bookmark_section .main .main_header .user_bookmark {
   display: flex;
   justify-content: center;
 }
-body .bookmark_section .main .main_header .user_bookmark .bookmark button {
+body .bookmark_section .main .main_header .user_bookmark .bookmark_button button {
   background: #014745;
   padding: 14px 18px;
   border: none;
@@ -280,6 +280,20 @@ body .bookmark_section .main .main_body .body_heading .sort_area button {
   background: none;
   cursor: pointer;
   font-size: 16px;
+}
+body .bookmark_section .main .main_body .bookmarks {
+  margin-top: 15px;
+  height: 100%;
+  background: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark {
+  width: 360px;
+  height: 280px;
+  background: green;
 }
 
 body.dark {
