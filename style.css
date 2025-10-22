@@ -114,7 +114,6 @@ body .bookmark_section {
 }
 body .bookmark_section .aside {
   width: 20%;
-  height: 100vh;
   background: #fff;
   padding: 20px;
   border-right: 1px solid #DDE9E7;
@@ -187,8 +186,6 @@ body .bookmark_section .aside .tag_list .tag_item button {
 }
 body .bookmark_section .main {
   width: 80%;
-  height: 100vh;
-  background: #fff;
 }
 body .bookmark_section .main .main_header {
   width: 80%;
@@ -246,7 +243,6 @@ body .bookmark_section .main .main_header .user_bookmark .user img {
 }
 body .bookmark_section .main .main_body {
   width: 100%;
-  height: calc(100vh - 80px);
   background: #E8F0EF;
   padding: 0 32px;
   margin-top: 80px;
@@ -291,7 +287,7 @@ body .bookmark_section .main .main_body .bookmarks {
   row-gap: 30px;
 }
 body .bookmark_section .main .main_body .bookmarks .bookmark {
-  width: 320px;
+  width: 358px;
   height: 250px;
   background: green;
 }
