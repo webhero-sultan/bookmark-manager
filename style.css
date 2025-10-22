@@ -191,13 +191,15 @@ body .bookmark_section .main {
   background: #fff;
 }
 body .bookmark_section .main .main_header {
-  width: 100%;
+  width: 80%;
   height: 80px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
+  position: fixed;
+  z-index: 1;
 }
 body .bookmark_section .main .main_header .search {
   width: 320px;
@@ -222,7 +224,7 @@ body .bookmark_section .main .main_header .search input:focus {
 }
 body .bookmark_section .main .main_header .user_bookmark {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 body .bookmark_section .main .main_header .user_bookmark .bookmark button {
   background: #014745;
@@ -232,15 +234,52 @@ body .bookmark_section .main .main_header .user_bookmark .bookmark button {
   margin-right: 15px;
   color: #fff;
   font-size: 16px;
+  cursor: pointer;
+}
+body .bookmark_section .main .main_header .user_bookmark .user {
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
 }
 body .bookmark_section .main .main_header .user_bookmark .user img {
-  width: 45px;
+  width: 100%;
 }
 body .bookmark_section .main .main_body {
   width: 100%;
   height: calc(100vh - 80px);
   background: #E8F0EF;
   padding: 0 32px;
+  margin-top: 80px;
+}
+body .bookmark_section .main .main_body .body_heading {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+body .bookmark_section .main .main_body .body_heading h1 {
+  color: #051513;
+  font-size: 24px;
+}
+body .bookmark_section .main .main_body .body_heading .sort_area {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #C0CFCC;
+  cursor: pointer;
+  color: #051513;
+  border-radius: 8px;
+}
+body .bookmark_section .main .main_body .body_heading .sort_area i {
+  color: #4C5C59;
+  margin-right: 5px;
+  font-size: 16px;
+}
+body .bookmark_section .main .main_body .body_heading .sort_area button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 body.dark {
