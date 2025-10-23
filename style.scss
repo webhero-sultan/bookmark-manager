@@ -125,13 +125,19 @@ body {
     // ===== login part ends =====
   }
   .bookmark_section{
+    width: 1520px;
+    // height: 100px;
     display: flex;
+    margin: 0 auto;
+    background: red;
     .aside{
-      width: 20%;
+      // display: none;
+      width: 335px;
       // height: 100vh;
       background: #fff;
       padding: 20px;
       border-right: 1px solid #DDE9E7;
+      top: 0;
       .status{
         margin: 10px 0;
         button{
@@ -203,10 +209,11 @@ body {
       }
     }
     .main{
-      width: 80%;
+      // display: none;
+      width: 1186px;
       // height: 100vh;
       .main_header{
-        width: 80%;
+        width: 1186px;
         height: 80px;
         background: #fff;
         display: flex;
@@ -262,8 +269,9 @@ body {
         }
       }
       .main_body{
-        width: 100%;
-        // height: calc(100vh - 80px);
+        // margin-bottom: 100px;
+        width: 1186px;
+        min-height: calc(100vh - 80px);
         background: #E8F0EF;
         padding: 0 32px;
         margin-top: 80px;
@@ -300,26 +308,80 @@ body {
         .bookmarks{
           margin-top: 15px;
           height: 100%;
-          background: red;
+          // background: red;
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-between;
-          row-gap: 30px;
+          // justify-content: space-between;
+          gap: 36px;
           // display: grid;
           // grid-template-columns: repeat(3, 1fr);
-          // gap: 51px;
-          .bookmark{
-            width: 358px;
-            height: 250px;
-            background: green;
+          // gap: 50px;
+          .bookmark_card{
+            width: 350px;
+            height: 280px;
+            background: #fff;
+            border-radius: 12px;
+            padding-top: 15px;
+            cursor: pointer;
+            box-shadow: 0px 0px 5px #C0CFCC;
+            transition-duration: .4s;
+            &:hover{
+              scale: 1.02;
+            }
+            .card_header{
+              width: 300px;
+              // height: 80px;
+              // background: red;
+              margin: 0 auto;
+              border-bottom: 1px solid #C0CFCC;
+              display: flex;
+              align-items: center;
+              padding-bottom: 15px;
+              position: relative;
+              .card_logo{
+                height: 50px;
+                width: 50px;
+                border: 1px solid #C0CFCC;
+                border-radius: 8px;
+                img{
+                  width: 100%;
+                  border-radius: 8px;
+                }
+              }
+              .card_title{
+                margin-left: 10px;
+                h1{
+                  font-size: 24px;
+                  font-weight: 900;
+                  color: #051513;
+                  margin-top: -2px;
+                  margin-bottom: -2px;
+                }
+                a{
+                  color: #4C5C59;
+                  text-decoration: none;
+                }
+              }
+              .card_options{
+                height: 32px;
+                width: 32px;
+                border: 1px solid #C0CFCC;
+                border-radius: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+              }
+            }
           }
         }
       }
     }
   }
 }
-
-
 // ==============================================================================
 // =============================== Dark mode css ================================
 // ==============================================================================
