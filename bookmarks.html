@@ -8,6 +8,43 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body style="background: #fff;">
+  <!-- ===== Add Bookmark Form Popup ===== -->
+<div id="addBookmarkPopup" class="popup">
+  <div class="popup-content">
+    <h2>Add New Bookmark</h2>
+
+    <form id="bookmarkForm">
+      <!-- Bookmark Title -->
+      <label for="title">Bookmark Title:</label>
+      <input type="text" id="title" placeholder="Enter title" required>
+
+      <!-- Bookmark URL -->
+      <label for="url">Website URL:</label>
+      <input type="url" id="url" placeholder="https://example.com" required>
+
+      <!-- Description -->
+      <label for="description">Description:</label>
+      <textarea id="description" rows="3" placeholder="Write a short note..."></textarea>
+
+      <!-- Category -->
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="coding">Coding</option>
+        <option value="learning">Learning</option>
+        <option value="tools">Tools</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- Buttons -->
+      <div class="form-buttons">
+        <button type="submit" class="add-btn">Add Bookmark</button>
+        <button type="button" id="closePopup" class="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
   <div class="bookmark_section">
     <!-- ===== aside section starts ===== -->
     <div class="aside">
@@ -56,7 +93,7 @@
         </div>
         <div class="user_bookmark">
           <div class="bookmark_button">
-            <button type="button">+ Add Bookmark</button>
+            <button type="button" id="addBookmarkBtn">+ Add Bookmark</button>
           </div>
           <div class="user">
             <img src="assets/images/image-avatar.webp" alt="">
@@ -71,7 +108,7 @@
             <button type="button">Sort by </button>
           </div>
         </div>
-        <div class="bookmarks">
+        <div class="bookmarks bookmark-list" id="bookmarkList">
           <!-- ===== single card section starts ===== -->
           <div class="bookmark_card">
             <!-- ===== card header area starts ===== -->
@@ -83,8 +120,13 @@
                 <h1>React Docs</h1>
                 <a href="https://react.dev/" target="_blank">react.dev</a>
               </div>
-              <div class="card_options">
+              <div class="card_options" id="cardOptions">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
+                <ul class="card_menu" id="cardMenu">
+                  <li>Home</li>
+                  <li>Home</li>
+                  <li>Home</li>
+                </ul>
               </div>
             </div>
             <!-- ===== card header area ends ===== -->
@@ -122,6 +164,7 @@
             <!-- ===== card info area ends ===== -->
           </div>
           <!-- ===== single card section ends -->
+          <!-- <div id="bookmarkList" class="bookmark-list"></div> -->
         </div>
       </div>
     </div>
