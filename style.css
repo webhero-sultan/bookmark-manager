@@ -297,13 +297,14 @@ body .bookmark_section .main .main_body .bookmarks .bookmark_card {
   padding-top: 15px;
   cursor: pointer;
   box-shadow: 0px 0px 5px #C0CFCC;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
+  position: relative;
 }
 body .bookmark_section .main .main_body .bookmarks .bookmark_card:hover {
   scale: 1.02;
 }
 body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_header {
-  width: 300px;
+  width: 320px;
   margin: 0 auto;
   border-bottom: 1px solid #C0CFCC;
   display: flex;
@@ -347,6 +348,55 @@ body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_header .
   top: 0;
   right: 0;
   cursor: pointer;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_description {
+  padding: 15px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_description p {
+  color: #4C5C59;
+  font-size: 15px;
+  line-height: 20px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_tags {
+  padding: 0px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_tags h5 {
+  color: #4C5C59;
+  font-size: 14px;
+  font-weight: normal;
+  background: #E8F0EF;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info {
+  width: 100%;
+  height: 47px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-top: 1px solid #C0CFCC;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_visited, body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_recently_visited, body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_added {
+  display: flex;
+  align-items: center;
+  color: #4C5C59;
+  font-size: 14px;
+  margin-right: 15px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_visited i, body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_recently_visited i, body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_added i {
+  margin-right: 5px;
+}
+body .bookmark_section .main .main_body .bookmarks .bookmark_card .card_info .card_pin {
+  position: absolute;
+  color: #4C5C59;
+  font-size: 14px;
+  right: 15px;
 }
 
 body.dark {
