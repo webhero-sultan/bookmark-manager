@@ -379,105 +379,16 @@ if (updateLoginLink) {
 const cardOptions = document.getElementById('cardOptions');
 const cardMenu = document.getElementById('cardMenu');
 
-cardOptions.addEventListener("click", function(event){
+// cardOptions.addEventListener("click", function(event){
 
-  if (cardMenu.style.display === "block"){
-    cardMenu.style.display = "none";
-  }else{
-    cardMenu.style.display = "block";
-  }
-});
+//   if (cardMenu.style.display === "block"){
+//     cardMenu.style.display = "none";
+//   }else{
+//     cardMenu.style.display = "block";
+//   }
+// });
 
-// ====================================================================
-const addBtn = document.getElementById("addBookmarkBtn");
-const popup = document.getElementById("addBookmarkPopup");
-const closePopup = document.getElementById("closePopup");
-const form = document.getElementById("bookmarkForm");
-const bookmarkList = document.getElementById("bookmarkList");
-
-addBtn.onclick = () => popup.style.display = "flex";
-closePopup.onclick = () => popup.style.display = "none";
-
-form.onsubmit = (e) => {
-  e.preventDefault();
-
-  const title = document.getElementById("title").value;
-  const url = document.getElementById("url").value;
-  const description = document.getElementById("description").value;
-  const category = document.getElementById("category").value;
-
-  if (!title || !url) {
-    alert("Please enter at least title and URL");
-    return;
-  }
-
-  // Create card container
-  const card = document.createElement("div");
-  card.classList.add("bookmark_card");
-
-  // Insert full HTML structure
-  card.innerHTML = `
-    <div class="card_header">
-      <div class="card_logo">
-        <img src="assets/images/favicon-react-docs.png" alt="">
-      </div>
-      <div class="card_title">
-        <h1>${title}</h1>
-        <a href="${url}" target="_blank">${url}</a>
-      </div>
-      <div class="card_options">
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-        <ul class="card_menu">
-          <li class="archive_option">Archive</li>
-          <li>Delete</li>
-        </ul>
-      </div>
-    </div>
-    <div class="card_description">
-      <p>${description}</p>
-    </div>
-    <div class="card_tags">
-      <h5>${category}</h5>
-    </div>
-    <div class="card_info">
-      <div class="card_visited">
-        <i class="fa-solid fa-eye"></i>
-        <p>0</p>
-      </div>
-      <div class="card_recently_visited">
-        <i class="fa-regular fa-clock"></i>
-        <p>0</p>
-      </div>
-      <div class="card_added">
-        <i class="fa-regular fa-calendar"></i>
-        <p>0</p>
-      </div>
-      <div class="card_pin">
-        <i class="fa-solid fa-thumbtack"></i>
-      </div>
-    </div>
-  `;
-
-  // Add card to the bookmarks container
-  bookmarkList.appendChild(card);
-
-  // Reset form and hide popup
-  form.reset();
-  popup.style.display = "none";
-};
-
-
-// ====================================================================
-
-
-
-
-
-
-
-
-
-  // ===== FORM TOGGLE LOGIC =====
+// ===== FORM TOGGLE LOGIC =====
   const toggleLogin = document.getElementById("toggleLogin");
   if (toggleLogin) {
     toggleLogin.addEventListener("click", () => {

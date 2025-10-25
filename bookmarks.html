@@ -8,43 +8,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body style="background: #fff;">
-  <!-- ===== Add Bookmark Form Popup ===== -->
-<div id="addBookmarkPopup" class="popup">
-  <div class="popup-content">
-    <h2>Add New Bookmark</h2>
-
-    <form id="bookmarkForm">
-      <!-- Bookmark Title -->
-      <label for="title">Bookmark Title:</label>
-      <input type="text" id="title" placeholder="Enter title" required>
-
-      <!-- Bookmark URL -->
-      <label for="url">Website URL:</label>
-      <input type="url" id="url" placeholder="https://example.com" required>
-
-      <!-- Description -->
-      <label for="description">Description:</label>
-      <textarea id="description" rows="3" placeholder="Write a short note..."></textarea>
-
-      <!-- Category -->
-      <label for="category">Category:</label>
-      <select id="category">
-        <option value="coding">Coding</option>
-        <option value="learning">Learning</option>
-        <option value="tools">Tools</option>
-        <option value="other">Other</option>
-      </select>
-
-      <!-- Buttons -->
-      <div class="form-buttons">
-        <button type="submit" class="add-btn">Add Bookmark</button>
-        <button type="button" id="closePopup" class="cancel-btn">Cancel</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-
   <div class="bookmark_section">
     <!-- ===== aside section starts ===== -->
     <div class="aside">
@@ -174,7 +137,7 @@
 
 
   <!-- <h1 id="userInfo">Welcome to Bookmark Manager</h1> -->
-  <!-- <button id="logoutButton">Logout</button> -->
+  <button id="logoutButton">Logout</button>
   <button id="themeToggle">Dark Mode</button>
 
   <script src="custom.js"></script>
